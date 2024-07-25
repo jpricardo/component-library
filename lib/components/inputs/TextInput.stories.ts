@@ -1,16 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
+import defaultDecorator from '../../defaultDecorator';
+
 import { TextInput } from './TextInput';
 
 const meta: Meta<typeof TextInput> = {
 	title: 'Components/Inputs/TextInput',
 	component: TextInput,
-	parameters: { layout: 'centered' },
+	decorators: [defaultDecorator],
 	tags: ['autodocs'],
 	args: {
 		placeholder: 'placeholder',
-		defaultValue: 'placeholder',
+		defaultValue: 'Value',
 		disabled: false,
 		readOnly: false,
 		onChange: fn(),

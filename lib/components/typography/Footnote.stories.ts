@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import defaultDecorator from '../../defaultDecorator';
+
 import { Typography } from '.';
 
 const meta: Meta<typeof Typography.Footnote> = {
 	title: 'Components/Typography/Footnote',
 	component: Typography.Footnote,
-	parameters: { layout: 'centered' },
+	decorators: [defaultDecorator],
 	tags: ['autodocs'],
 	args: {
 		size: 'medium',
