@@ -14,14 +14,14 @@ type OptionObjectType = { label: React.ReactNode; value: ValueType };
 type OptionType = ValueType | OptionObjectType;
 
 type OmitProps = 'children' | 'value' | 'onChange';
-type SelectProps<T extends OptionType> = Omit<React.SelectHTMLAttributes<HTMLSelectElement>, OmitProps> & {
-	options: T[];
+export type SelectProps<T extends OptionType> = Omit<React.SelectHTMLAttributes<HTMLSelectElement>, OmitProps> & {
+	options?: T[];
 
 	value?: T extends OptionObjectType ? ValueType : T;
 	onChange?: (value: T) => void;
 };
 
-export function Select<T extends OptionType>({ options, value, onChange, ...props }: SelectProps<T>) {
+export function Select<T extends OptionType>({ options = [], value, onChange, ...props }: SelectProps<T>) {
 	return (
 		<StyledSelect value={value} onChange={(e) => onChange?.(e.target.value as T)} {...props}>
 			{options.map((item, index) => {
