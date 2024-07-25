@@ -1,16 +1,33 @@
+import styled from 'styled-components';
+
 import { Typography } from '../typography';
+
+const StyledInput = styled.input``;
+
+const StyledLabel = styled(Typography.Label)<{ $disabled?: boolean }>`
+	opacity: ${({ $disabled }) => ($disabled ? 0.5 : 1)};
+`;
 
 type OptionType = string | number;
 
 export type CheckboxGroupProps<T extends OptionType> = {
 	name: string;
 
-	options: T[];
+	disabled?: boolean;
+	options?: T[];
+	defaultValue?: T[];
 	value?: T[];
 	onChange?: (value: T[]) => void;
 };
 
-export function CheckboxGroup<T extends OptionType>({ name, options, value, onChange }: CheckboxGroupProps<T>) {
+export function CheckboxGroup<T extends OptionType>({
+	name,
+	disabled,
+	options = [],
+	defaultValue = [],
+	value,
+	onChange,
+}: CheckboxGroupProps<T>) {
 	const addOptionToValue = (option: T, value?: T[]) => {
 		return [...(value || []), option];
 	};
@@ -28,18 +45,22 @@ export function CheckboxGroup<T extends OptionType>({ name, options, value, onCh
 						key={checkboxName}
 						style={{ display: 'flex', flexDirection: 'row', gap: '0.25rem', alignItems: 'center' }}
 					>
-						<input
+						<StyledInput
 							type='checkbox'
 							id={checkboxName}
 							name={checkboxName}
 							checked={value?.includes(option)}
+							defaultChecked={defaultValue?.includes(option)}
 							onChange={(e) => {
 								if (e.target.checked) return onChange?.(addOptionToValue(option, value));
 								return onChange?.(removeOptionFromValue(option, value));
 							}}
+							disabled={disabled}
 						/>
 
-						<Typography.Label htmlFor={checkboxName}>{option}</Typography.Label>
+						<StyledLabel htmlFor={checkboxName} $disabled={disabled}>
+							{option}
+						</StyledLabel>
 					</div>
 				);
 			})}
