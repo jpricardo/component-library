@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 import { Typography } from '../typography';
 
-const StyledInput = styled.input``;
+const StyledInput = styled.input`
+	margin: 0;
+`;
 
 const StyledLabel = styled(Typography.Label)<{ $disabled?: boolean }>`
 	opacity: ${({ $disabled }) => ($disabled ? 0.5 : 1)};
@@ -37,7 +39,7 @@ export function CheckboxGroup<T extends OptionType>({
 	};
 
 	return (
-		<div style={{ display: 'flex', flexDirection: 'column' }}>
+		<div style={{ display: 'flex', flexDirection: 'column', gap: '0.125rem' }}>
 			{options.map((option, index) => {
 				const checkboxName = `${name}-checkbox-item-${index}`;
 				return (
