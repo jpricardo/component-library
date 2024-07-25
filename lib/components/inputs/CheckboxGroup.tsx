@@ -26,7 +26,7 @@ export function CheckboxGroup<T extends OptionType>({ name, options, value, onCh
 				return (
 					<div
 						key={checkboxName}
-						style={{ display: 'flex', flexDirection: 'row', gap: '0.25rem', textAlign: 'center' }}
+						style={{ display: 'flex', flexDirection: 'row', gap: '0.25rem', alignItems: 'center' }}
 					>
 						<input
 							type='checkbox'

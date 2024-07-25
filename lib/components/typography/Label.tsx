@@ -2,6 +2,8 @@ import { memo } from 'react';
 import styled from 'styled-components';
 
 const StyledLabel = styled.label<{ $size: 'small' | 'medium' | 'large' }>`
+	font-family: sans-serif;
+
 	font-size: ${({ $size }) => {
 		switch ($size) {
 			case 'small':

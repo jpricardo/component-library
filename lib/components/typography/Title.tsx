@@ -2,6 +2,8 @@ import { memo } from 'react';
 import styled from 'styled-components';
 
 const StyledTitle = styled.span<{ $size: 'small' | 'medium' | 'large' }>`
+	font-family: sans-serif;
+
 	font-size: ${({ $size }) => {
 		switch ($size) {
 			case 'small':
