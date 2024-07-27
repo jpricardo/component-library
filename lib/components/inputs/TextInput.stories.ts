@@ -13,6 +13,7 @@ const meta: Meta<typeof TextInput> = {
 	args: {
 		placeholder: 'placeholder',
 		defaultValue: 'Value',
+		type: 'text',
 		disabled: false,
 		readOnly: false,
 		onChange: fn(),
@@ -33,4 +34,12 @@ export const Disabled: Story = {
 
 export const ReadOnly: Story = {
 	args: { readOnly: true },
+};
+
+export const Password: Story = {
+	args: { type: 'password' },
+};
+
+export const Number: Story = {
+	args: { defaultValue: '10', type: 'number', min: 0, max: 100, step: 2 },
 };
