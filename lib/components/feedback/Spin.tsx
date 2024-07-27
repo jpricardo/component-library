@@ -28,7 +28,7 @@ const StyledSpin = styled.div<{ $size: SpinProps['size'] }>`
 
 	border-radius: 50%;
 	border-style: solid;
-	border-width: ${({ $size }) => ($size === 'sm' ? '2px' : '5px')};
+	border-width: ${({ $size }) => ($size === 'lg' ? '5px' : '2px')};
 	border-color: ${({ theme }) => theme.colors.outline};
 
 	border-bottom-color: transparent !important;
