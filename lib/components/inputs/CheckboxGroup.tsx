@@ -7,6 +7,7 @@ const StyledInput = styled.input`
 `;
 
 const StyledLabel = styled(Typography.Label)<{ $disabled?: boolean }>`
+	font-family: ${({ theme }) => theme.typography.fontFamily};
 	opacity: ${({ $disabled }) => ($disabled ? 0.5 : 1)};
 `;
 

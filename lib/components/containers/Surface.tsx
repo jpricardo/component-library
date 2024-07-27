@@ -8,6 +8,8 @@ type StyledSurfaceProps = {
 };
 
 const StyledSurface = styled.div<StyledSurfaceProps>`
+	font-family: ${({ theme }) => theme.typography.fontFamily};
+
 	padding: 2rem;
 
 	color: ${({ $variant, theme }) => {

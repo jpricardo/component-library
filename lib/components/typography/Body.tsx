@@ -7,7 +7,7 @@ type StyledBodyProps = {
 };
 
 const StyledBody = styled.span<StyledBodyProps>`
-	font-family: sans-serif;
+	font-family: ${({ theme }) => theme.typography.fontFamily};
 
 	color: ${({ $variant, theme }) => {
 		if ($variant === 'primary') return theme.colors.primary;

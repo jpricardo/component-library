@@ -23,7 +23,10 @@ const baseShadows: Shadows = {
 	xl: 'rgba(0, 0, 0, 0.25) 0px 0px 40px 1px',
 };
 
-export type Theme = { colors: Colors; shadows: Shadows };
+type Typography = RecordOf<'fontFamily'>;
+const baseTypography: Typography = { fontFamily: 'sans-serif' };
+
+export type Theme = { colors: Colors; shadows: Shadows; typography: Typography };
 
 export const lightTheme: Theme = {
 	colors: {
@@ -43,6 +46,7 @@ export const lightTheme: Theme = {
 	},
 
 	shadows: baseShadows,
+	typography: baseTypography,
 };
 
 export const darkTheme: Theme = {
@@ -63,4 +67,5 @@ export const darkTheme: Theme = {
 	},
 
 	shadows: baseShadows,
+	typography: baseTypography,
 };

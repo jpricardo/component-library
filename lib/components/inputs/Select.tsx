@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 const StyledSelect = styled.select`
+	font-family: ${({ theme }) => theme.typography.fontFamily};
+
 	font-size: 14px;
 	line-height: 14px;
 	padding: 8px;

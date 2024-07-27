@@ -7,7 +7,7 @@ type StyledFootnoteProps = {
 };
 
 const StyledFootnote = styled.span<StyledFootnoteProps>`
-	font-family: sans-serif;
+	font-family: ${({ theme }) => theme.typography.fontFamily};
 
 	color: ${({ $variant, theme }) => {
 		if ($variant === 'primary') return theme.colors.primary;

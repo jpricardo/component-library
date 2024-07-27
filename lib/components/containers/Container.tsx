@@ -8,6 +8,8 @@ type StyledContainerProps = {
 };
 
 const StyledContainer = styled.div<StyledContainerProps>`
+	font-family: ${({ theme }) => theme.typography.fontFamily};
+
 	padding: 1rem;
 	border-radius: 0.25rem;
 

@@ -7,7 +7,7 @@ type StyledTitleProps = {
 };
 
 const StyledTitle = styled.span<StyledTitleProps>`
-	font-family: sans-serif;
+	font-family: ${({ theme }) => theme.typography.fontFamily};
 
 	color: ${({ $variant, theme }) => {
 		if ($variant === 'primary') return theme.colors.primary;

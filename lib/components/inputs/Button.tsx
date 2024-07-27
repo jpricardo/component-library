@@ -8,6 +8,8 @@ type VariantType = 'default' | 'primary' | 'danger' | 'text';
 type StyledButtonProps = { $variant: VariantType; $loading?: boolean };
 
 const StyledButton = styled.button<StyledButtonProps>`
+	font-family: ${({ theme }) => theme.typography.fontFamily};
+
 	font-size: 14px;
 	line-height: 14px;
 	padding: 0.5rem 1rem;
