@@ -1,6 +1,18 @@
 type RecordOf<T extends string, K = string> = { [Q in T]: K };
 
-type Colors = RecordOf<'outline' | 'surface' | 'onSurface' | 'primary' | 'onPrimary' | 'error' | 'onError'>;
+type Colors = RecordOf<
+	| 'outline'
+	| 'surface'
+	| 'onSurface'
+	| 'primary'
+	| 'onPrimary'
+	| 'primaryContainer'
+	| 'onPrimaryContainer'
+	| 'error'
+	| 'onError'
+	| 'errorContainer'
+	| 'onErrorContainer'
+>;
 
 type Shadows = RecordOf<'xs' | 'sm' | 'md' | 'lg' | 'xl'>;
 const baseShadows: Shadows = {
@@ -18,10 +30,16 @@ export const lightTheme: Theme = {
 		surface: '#f8f7f8',
 		onSurface: '#0a0f0a', // black
 		outline: '#c3c3c3',
-		primary: '#4545ff',
+
+		primary: '#2F4874',
 		onPrimary: '#faf0fa',
-		error: 'red',
+		primaryContainer: '#9AB0D6',
+		onPrimaryContainer: '#0a0f0a',
+
+		error: '#C42A2A',
 		onError: '#faf0fa', // white
+		errorContainer: '#DF6868',
+		onErrorContainer: '#0a0f0a',
 	},
 
 	shadows: baseShadows,
@@ -32,10 +50,16 @@ export const darkTheme: Theme = {
 		surface: '#3c3b3c',
 		onSurface: '#faf0fa',
 		outline: '#c3c3c3',
-		primary: '#4545ff',
+
+		primary: '#2F4874',
 		onPrimary: '#faf0fa',
-		error: 'red',
+		primaryContainer: '#1D2D49',
+		onPrimaryContainer: '#faf0fa',
+
+		error: '#C42A2A',
 		onError: '#faf0fa',
+		errorContainer: '#761919',
+		onErrorContainer: '#faf0fa',
 	},
 
 	shadows: baseShadows,
