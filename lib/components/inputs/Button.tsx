@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+import { Flex } from '../containers/Flex';
+import { Spin } from '../feedback/Spin';
+
 type VariantType = 'default' | 'primary' | 'danger' | 'text';
 
 type StyledButtonProps = { $variant: VariantType; $loading?: boolean };
@@ -75,6 +78,14 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 	loading?: boolean;
 };
 
-export function Button({ variant = 'default', loading, disabled, ...props }: ButtonProps) {
-	return <StyledButton $variant={variant} $loading={loading} disabled={disabled || loading} {...props} />;
+export function Button({ variant = 'default', loading, disabled, children, ...props }: ButtonProps) {
+	return (
+		<StyledButton $variant={variant} $loading={loading} disabled={disabled || loading} {...props}>
+			<Flex gap='0.5rem' justify='space-around' align='center'>
+				{children}
+
+				{loading && <Spin size='sm' style={{ borderColor: 'inherit' }} />}
+			</Flex>
+		</StyledButton>
+	);
 }
