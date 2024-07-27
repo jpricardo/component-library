@@ -1,8 +1,20 @@
 import { memo } from 'react';
 import styled from 'styled-components';
 
-const StyledLabel = styled.label<{ $size: 'small' | 'medium' | 'large' }>`
+type StyledLabelProps = {
+	$variant: LabelProps['variant'];
+	$size: LabelProps['size'];
+};
+
+const StyledLabel = styled.label<StyledLabelProps>`
 	font-family: sans-serif;
+
+	color: ${({ $variant, theme }) => {
+		if ($variant === 'primary') return theme.colors.primary;
+		if ($variant === 'danger') return theme.colors.error;
+
+		return 'inherit';
+	}};
 
 	font-size: ${({ $size }) => {
 		switch ($size) {
@@ -31,10 +43,11 @@ const StyledLabel = styled.label<{ $size: 'small' | 'medium' | 'large' }>`
 
 type LabelProps = React.HTMLAttributes<HTMLLabelElement> & {
 	htmlFor?: string;
+	variant?: 'default' | 'primary' | 'danger';
 	size?: 'small' | 'medium' | 'large';
 };
-function Label({ size = 'medium', ...props }: LabelProps) {
-	return <StyledLabel $size={size} {...props} />;
+function Label({ variant = 'default', size = 'medium', ...props }: LabelProps) {
+	return <StyledLabel $variant={variant} $size={size} {...props} />;
 }
 
 export default memo(Label);

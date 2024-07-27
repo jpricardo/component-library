@@ -10,6 +10,7 @@ const meta: Meta<typeof Typography.Body> = {
 	decorators: [defaultDecorator],
 	tags: ['autodocs'],
 	args: {
+		variant: 'default',
 		size: 'medium',
 		children: 'Children',
 	},
@@ -21,4 +22,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
 	args: {},
+};
+
+export const Primary: Story = {
+	args: { variant: 'primary' },
+};
+
+export const Danger: Story = {
+	args: { variant: 'danger' },
 };

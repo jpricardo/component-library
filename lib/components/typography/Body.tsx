@@ -1,8 +1,20 @@
 import { memo } from 'react';
 import styled from 'styled-components';
 
-const StyledBody = styled.span<{ $size: 'small' | 'medium' | 'large' }>`
+type StyledBodyProps = {
+	$variant: BodyProps['variant'];
+	$size: BodyProps['size'];
+};
+
+const StyledBody = styled.span<StyledBodyProps>`
 	font-family: sans-serif;
+
+	color: ${({ $variant, theme }) => {
+		if ($variant === 'primary') return theme.colors.primary;
+		if ($variant === 'danger') return theme.colors.error;
+
+		return 'inherit';
+	}};
 
 	font-size: ${({ $size }) => {
 		switch ($size) {
@@ -30,10 +42,11 @@ const StyledBody = styled.span<{ $size: 'small' | 'medium' | 'large' }>`
 `;
 
 type BodyProps = React.HTMLAttributes<HTMLSpanElement> & {
+	variant?: 'default' | 'primary' | 'danger';
 	size?: 'small' | 'medium' | 'large';
 };
-function Body({ size = 'medium', ...props }: BodyProps) {
-	return <StyledBody $size={size} {...props} />;
+function Body({ variant = 'default', size = 'medium', ...props }: BodyProps) {
+	return <StyledBody $variant={variant} $size={size} {...props} />;
 }
 
 export default memo(Body);

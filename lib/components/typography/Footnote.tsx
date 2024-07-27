@@ -1,8 +1,20 @@
 import { memo } from 'react';
 import styled from 'styled-components';
 
-const StyledBody = styled.span<{ $size: 'small' | 'medium' | 'large' }>`
+type StyledFootnoteProps = {
+	$variant: FootnoteProps['variant'];
+	$size: FootnoteProps['size'];
+};
+
+const StyledFootnote = styled.span<StyledFootnoteProps>`
 	font-family: sans-serif;
+
+	color: ${({ $variant, theme }) => {
+		if ($variant === 'primary') return theme.colors.primary;
+		if ($variant === 'danger') return theme.colors.error;
+
+		return 'inherit';
+	}};
 
 	font-size: ${({ $size }) => {
 		switch ($size) {
@@ -31,10 +43,11 @@ const StyledBody = styled.span<{ $size: 'small' | 'medium' | 'large' }>`
 `;
 
 type FootnoteProps = React.HTMLAttributes<HTMLSpanElement> & {
+	variant?: 'default' | 'primary' | 'danger';
 	size?: 'small' | 'medium' | 'large';
 };
-function Footnote({ size = 'medium', ...props }: FootnoteProps) {
-	return <StyledBody $size={size} {...props} />;
+function Footnote({ variant = 'default', size = 'medium', ...props }: FootnoteProps) {
+	return <StyledFootnote $variant={variant} $size={size} {...props} />;
 }
 
 export default memo(Footnote);

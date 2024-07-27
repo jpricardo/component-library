@@ -1,8 +1,20 @@
 import { memo } from 'react';
 import styled from 'styled-components';
 
-const StyledTitle = styled.span<{ $size: 'small' | 'medium' | 'large' }>`
+type StyledTitleProps = {
+	$variant: TitleProps['variant'];
+	$size: TitleProps['size'];
+};
+
+const StyledTitle = styled.span<StyledTitleProps>`
 	font-family: sans-serif;
+
+	color: ${({ $variant, theme }) => {
+		if ($variant === 'primary') return theme.colors.primary;
+		if ($variant === 'danger') return theme.colors.error;
+
+		return 'inherit';
+	}};
 
 	font-size: ${({ $size }) => {
 		switch ($size) {
@@ -30,10 +42,11 @@ const StyledTitle = styled.span<{ $size: 'small' | 'medium' | 'large' }>`
 `;
 
 type TitleProps = React.HTMLAttributes<HTMLSpanElement> & {
+	variant?: 'default' | 'primary' | 'danger';
 	size?: 'small' | 'medium' | 'large';
 };
-function Title({ size = 'medium', ...props }: TitleProps) {
-	return <StyledTitle $size={size} {...props} />;
+function Title({ variant = 'default', size = 'medium', ...props }: TitleProps) {
+	return <StyledTitle $variant={variant} $size={size} {...props} />;
 }
 
 export default memo(Title);
