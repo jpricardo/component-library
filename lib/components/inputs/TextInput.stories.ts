@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import { expect, fn, userEvent } from '@storybook/test';
 
 import defaultDecorator from '../../defaultDecorator';
 
@@ -12,7 +12,7 @@ const meta: Meta<typeof TextInput> = {
 	tags: ['autodocs'],
 	args: {
 		placeholder: 'placeholder',
-		defaultValue: 'Value',
+		defaultValue: '',
 		type: 'text',
 		disabled: false,
 		readOnly: false,
@@ -26,6 +26,16 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
 	args: {},
+	play: async ({ canvas, args }) => {
+		const value = 'value';
+		const element = canvas.getByPlaceholderText('placeholder');
+
+		await userEvent.type(element, value, { delay: 100 });
+
+		await expect(args.onChange).toHaveBeenCalled();
+		await expect(args.onChange).toHaveBeenCalledTimes(value.length);
+		await expect(canvas.getByDisplayValue(value)).toBeInTheDocument();
+	},
 };
 
 export const Disabled: Story = {
@@ -38,6 +48,15 @@ export const ReadOnly: Story = {
 
 export const Password: Story = {
 	args: { type: 'password' },
+	play: async ({ canvas, args }) => {
+		const value = 'value';
+		const element = canvas.getByPlaceholderText('placeholder');
+
+		await userEvent.type(element, value, { delay: 100 });
+
+		await expect(args.onChange).toHaveBeenCalled();
+		await expect(args.onChange).toHaveBeenCalledTimes(value.length);
+	},
 };
 
 export const Number: Story = {
