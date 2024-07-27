@@ -8,6 +8,7 @@ const meta: Meta<typeof Surface> = {
 	parameters: { layout: 'centered' },
 	tags: ['autodocs'],
 	args: {
+		variant: 'default',
 		children: 'Children',
 	},
 };
@@ -18,6 +19,14 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
 	args: {},
+};
+
+export const Primary: Story = {
+	args: { variant: 'primary' },
+};
+
+export const Danger: Story = {
+	args: { variant: 'danger' },
 };
 
 export const ExtraSmallShadow: Story = {
