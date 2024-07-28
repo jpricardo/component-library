@@ -12,12 +12,14 @@ export default defineConfig({
 		},
 		copyPublicDir: false,
 		rollupOptions: { external: ['react', 'react/jsx-runtime'] },
+		sourcemap: true,
 	},
 
 	plugins: [
 		react(),
 		dts({
 			tsconfigPath: path.resolve(__dirname, 'tsconfig.build.json'),
+			rollupTypes: true,
 		}),
 	],
 });
