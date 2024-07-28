@@ -39,7 +39,7 @@ const StyledButton = styled.button<StyledButtonProps>`
 	background-color: ${({ $variant, theme }): React.CSSProperties['backgroundColor'] => {
 		switch ($variant) {
 			case 'default':
-				return 'transparent';
+				return theme.colors.containerLowest;
 			case 'primary':
 				return theme.colors.primary;
 			case 'danger':
@@ -65,6 +65,7 @@ const StyledButton = styled.button<StyledButtonProps>`
 	&:hover {
 		box-shadow: ${({ $variant, theme }) => ($variant === 'text' ? 0 : theme.shadows.sm)};
 		background-color: ${({ $variant, theme }) => {
+			if ($variant === 'default') return theme.colors.containerLow;
 			if ($variant === 'danger') return theme.colors.error;
 		}};
 		color: ${({ $variant, theme }) => {
