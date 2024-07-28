@@ -8,7 +8,7 @@
 	"exports": {
 		".": {
 			"require": "./dist/component-library.umd.js",
-			"import": "./dist/component-library.js",
+			"import": "./dist/component-library.umd.js",
 			"types": "./dist/index.d.ts"
 		}
 	},

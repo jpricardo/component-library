@@ -9,6 +9,7 @@ export default defineConfig({
 		lib: {
 			entry: path.resolve(__dirname, 'lib/main.ts'),
 			name: 'component-library',
+			formats: ['es', 'umd'],
 		},
 		copyPublicDir: false,
 		rollupOptions: {
