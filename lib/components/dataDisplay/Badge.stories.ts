@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import { Badge } from './Badge';
-
 import defaultDecorator from '../../defaultDecorator';
+
+import { Badge } from './Badge';
 
 const meta: Meta<typeof Badge> = {
 	title: 'Components/DataDisplay/Badge',
