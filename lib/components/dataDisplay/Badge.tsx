@@ -1,5 +1,5 @@
-import { memo } from 'react';
 import styled from 'styled-components';
+
 import { Flex } from '../containers';
 
 type StyledBadgeProps = {
@@ -42,12 +42,12 @@ const StyledCloseBtn = styled.span`
 	line-height: 10px;
 `;
 
-type BadgeProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
+export type BadgeProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
 	variant?: 'default' | 'primary' | 'danger';
 	closable?: boolean;
 	onClose?: () => void;
 };
-function Badge({ variant = 'default', closable, onClose, children, ...props }: BadgeProps) {
+export function Badge({ variant = 'default', closable, onClose, children, ...props }: BadgeProps) {
 	return (
 		<StyledBadge $variant={variant} {...props}>
 			<Flex align='center' gap='0.5rem'>
@@ -58,5 +58,3 @@ function Badge({ variant = 'default', closable, onClose, children, ...props }: B
 		</StyledBadge>
 	);
 }
-
-export default memo(Badge);
