@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import defaultDecorator from '../../defaultDecorator';
+
 import { Container } from './Container';
 
 const meta: Meta<typeof Container> = {
 	title: 'Components/Containers/Container',
 	component: Container,
-	parameters: { layout: 'centered' },
+	decorators: [defaultDecorator],
 	tags: ['autodocs'],
 	args: {
 		variant: 'default',
@@ -19,6 +21,22 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
 	args: {},
+};
+
+export const Lowest: Story = {
+	args: { variant: 'lowest' },
+};
+
+export const Low: Story = {
+	args: { variant: 'low' },
+};
+
+export const High: Story = {
+	args: { variant: 'high' },
+};
+
+export const Highest: Story = {
+	args: { variant: 'highest' },
 };
 
 export const Primary: Story = {

@@ -17,13 +17,17 @@ const StyledContainer = styled.div<StyledContainerProps>`
 		if ($variant === 'primary') return theme.colors.onPrimaryContainer;
 		if ($variant === 'danger') return theme.colors.onErrorContainer;
 
-		return theme.colors.onSurface;
+		return theme.colors.onContainer;
 	}};
 	background-color: ${({ $variant, theme }) => {
 		if ($variant === 'primary') return theme.colors.primaryContainer;
 		if ($variant === 'danger') return theme.colors.errorContainer;
+		if ($variant === 'lowest') return theme.colors.containerLowest;
+		if ($variant === 'low') return theme.colors.containerLow;
+		if ($variant === 'high') return theme.colors.containerHigh;
+		if ($variant === 'highest') return theme.colors.containerHighest;
 
-		return theme.colors.surface;
+		return theme.colors.container;
 	}};
 
 	box-shadow: ${({ $shadow, theme }) => {
@@ -32,7 +36,7 @@ const StyledContainer = styled.div<StyledContainerProps>`
 `;
 
 export type ContainerProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
-	variant?: 'default' | 'primary' | 'danger';
+	variant?: 'default' | 'primary' | 'danger' | 'lowest' | 'low' | 'high' | 'highest';
 	shadow?: keyof Theme['shadows'];
 };
 
