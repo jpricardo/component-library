@@ -2,13 +2,12 @@
 	"name": "@jpricardo/component-library",
 	"version": "0.0.6",
 	"type": "module",
-	"main": "./dist/component-library.umd.js",
-	"module": "./dist/component-library.js",
+	"main": "./dist/component-library.umd.cjs",
 	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
-			"require": "./dist/component-library.umd.js",
-			"import": "./dist/component-library.umd.js",
+			"require": "./dist/component-library.umd.cjs",
+			"import": "./dist/component-library.umd.cjs",
 			"types": "./dist/index.d.ts"
 		}
 	},
