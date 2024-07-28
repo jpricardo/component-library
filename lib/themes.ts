@@ -43,7 +43,7 @@ export const lightTheme: Theme = {
 		containerHighest: '#D1C7D1',
 
 		primary: '#2F4874',
-		onPrimary: black,
+		onPrimary: white,
 		primaryContainer: '#9AB0D6',
 		onPrimaryContainer: black,
 
