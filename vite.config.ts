@@ -11,7 +11,10 @@ export default defineConfig({
 			name: 'component-library',
 		},
 		copyPublicDir: false,
-		rollupOptions: { external: ['react', 'react/jsx-runtime'] },
+		rollupOptions: {
+			output: { interop: 'auto' },
+			external: ['react', 'react/jsx-runtime'],
+		},
 		sourcemap: true,
 	},
 
