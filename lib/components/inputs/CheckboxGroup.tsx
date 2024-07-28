@@ -27,7 +27,7 @@ export function CheckboxGroup<T extends OptionType>({
 	name,
 	disabled,
 	options = [],
-	defaultValue = [],
+	defaultValue,
 	value,
 	onChange,
 }: CheckboxGroupProps<T>) {
