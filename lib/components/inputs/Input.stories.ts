@@ -3,11 +3,11 @@ import { expect, fn, userEvent } from '@storybook/test';
 
 import defaultDecorator from '../../defaultDecorator';
 
-import { TextInput } from './TextInput';
+import { Input } from './Input';
 
-const meta: Meta<typeof TextInput> = {
-	title: 'Components/Inputs/TextInput',
-	component: TextInput,
+const meta: Meta<typeof Input> = {
+	title: 'Components/Inputs/Input',
+	component: Input,
 	decorators: [defaultDecorator],
 	tags: ['autodocs'],
 	args: {

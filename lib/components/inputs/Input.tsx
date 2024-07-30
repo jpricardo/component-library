@@ -23,8 +23,8 @@ const StyledInput = styled.input`
 	}
 `;
 
-export type TextInputProps = React.InputHTMLAttributes<HTMLInputElement>;
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
-export function TextInput({ ...props }: TextInputProps) {
+export function Input({ ...props }: InputProps) {
 	return <StyledInput {...props} />;
 }
