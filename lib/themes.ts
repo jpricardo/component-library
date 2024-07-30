@@ -49,7 +49,7 @@ export const lightTheme: Theme = {
 
 		error: '#C42A2A',
 		onError: '#faf0fa', // white
-		errorContainer: '#DF6868',
+		errorContainer: '#EDABAB',
 		onErrorContainer: black,
 	},
 
@@ -76,14 +76,14 @@ export const darkTheme: Theme = {
 		containerHigh: '#5D5B5D',
 		containerHighest: '#676567',
 
-		primary: '#2F4874',
+		primary: '#41649F',
 		onPrimary: white,
 		primaryContainer: '#1D2D49',
 		onPrimaryContainer: white,
 
-		error: '#C42A2A',
+		error: '#DC7272',
 		onError: white,
-		errorContainer: '#761919',
+		errorContainer: '#6A2424',
 		onErrorContainer: white,
 	},
 
