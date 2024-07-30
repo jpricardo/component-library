@@ -66,7 +66,7 @@ export const lightTheme: Theme = {
 
 export const darkTheme: Theme = {
 	colors: {
-		outline: '#c3c3c3',
+		outline: '#999999',
 		surface: '#3c3b3c',
 		onSurface: white,
 		container: '#525152',
