@@ -35,12 +35,12 @@ export const lightTheme: Theme = {
 		outline: '#c3c3c3',
 		surface: '#f8f7f8',
 		onSurface: black, // black
-		container: '#E3DDE3',
+		container: '#EDE9ED',
 		onContainer: black,
 		containerLowest: '#F8F7F8',
-		containerLow: '#EDE9ED',
-		containerHigh: '#DAD2DA',
-		containerHighest: '#D1C7D1',
+		containerLow: '#F1EEF1',
+		containerHigh: '#E3DDE3',
+		containerHighest: '#DAD2DA',
 
 		primary: '#2F4874',
 		onPrimary: white,
