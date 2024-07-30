@@ -8,6 +8,8 @@ type VariantType = 'default' | 'primary' | 'danger' | 'text';
 type StyledButtonProps = { $variant: VariantType; $loading?: boolean };
 
 const StyledButton = styled.button<StyledButtonProps>`
+	transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
 	font-family: ${({ theme }) => theme.typography.fontFamily};
 
 	font-size: 14px;
@@ -65,7 +67,6 @@ const StyledButton = styled.button<StyledButtonProps>`
 	&:hover {
 		box-shadow: ${({ $variant, theme }) => ($variant === 'text' ? 0 : theme.shadows.sm)};
 		background-color: ${({ $variant, theme }) => {
-			if ($variant === 'default') return theme.colors.containerLow;
 			if ($variant === 'danger') return theme.colors.error;
 		}};
 		color: ${({ $variant, theme }) => {
