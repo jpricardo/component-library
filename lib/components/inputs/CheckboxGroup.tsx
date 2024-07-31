@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { Typography } from '../typography';
 
 const StyledInput = styled.input`
+	accent-color: ${({ theme }) => theme.colors.primary};
 	margin: 0;
 `;
 
 const StyledLabel = styled(Typography.Label)<{ $disabled?: boolean }>`
-	font-family: ${({ theme }) => theme.typography.fontFamily};
 	opacity: ${({ $disabled }) => ($disabled ? 0.5 : 1)};
 `;
 

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import { expect, fn, userEvent } from '@storybook/test';
 
 import defaultDecorator from '../../defaultDecorator';
 
@@ -25,8 +25,24 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
 	args: {},
+	play: async ({ canvas, args }) => {
+		const items = canvas.getAllByRole('checkbox');
+
+		for (const item of items) {
+			await userEvent.click(item, { delay: 100 });
+			expect(args.onChange).toHaveBeenCalled();
+		}
+	},
 };
 
 export const Disabled: Story = {
 	args: { disabled: true },
+	play: async ({ canvas, args }) => {
+		const items = canvas.getAllByRole('checkbox');
+
+		for (const item of items) {
+			await userEvent.click(item, { delay: 100 });
+			expect(args.onChange).not.toHaveBeenCalled();
+		}
+	},
 };
