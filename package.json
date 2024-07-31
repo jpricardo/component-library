@@ -1,6 +1,6 @@
 {
 	"name": "@jpricardo/component-library",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"type": "module",
 	"main": "./dist/component-library.umd.cjs",
 	"types": "./dist/index.d.ts",
