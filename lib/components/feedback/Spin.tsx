@@ -1,5 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
+import { HtmlAttributes } from '..';
+
 const rotate = keyframes`
   from {
     transform: rotate(0deg);
@@ -34,7 +36,7 @@ const StyledSpin = styled.div<{ $size: SpinProps['size'] }>`
 	border-bottom-color: transparent !important;
 `;
 
-export type SpinProps = React.HTMLAttributes<HTMLDivElement> & {
+export type SpinProps = HtmlAttributes<HTMLDivElement> & {
 	size?: 'sm' | 'md' | 'lg';
 };
 

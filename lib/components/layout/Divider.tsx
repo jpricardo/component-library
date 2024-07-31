@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { HtmlAttributes } from '..';
+
 const StyledDivider = styled.div<{ $vertical: DividerProps['vertical'] }>`
 	height: ${({ $vertical }) => ($vertical ? '100%' : '1px')};
 	width: ${({ $vertical }) => ($vertical ? '1px' : '100%')};
@@ -8,7 +10,7 @@ const StyledDivider = styled.div<{ $vertical: DividerProps['vertical'] }>`
 	border-left: ${({ $vertical, theme }) => ($vertical ? `1px solid ${theme.colors.outline}` : 0)};
 `;
 
-export type DividerProps = Omit<React.HtmlHTMLAttributes<HTMLDivElement>, 'children'> & {
+export type DividerProps = Omit<HtmlAttributes<HTMLDivElement>, 'children'> & {
 	vertical?: boolean;
 };
 

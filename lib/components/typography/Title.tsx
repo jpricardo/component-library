@@ -1,6 +1,8 @@
 import { memo } from 'react';
 import styled from 'styled-components';
 
+import { HtmlAttributes } from '..';
+
 type StyledTitleProps = {
 	$variant: TitleProps['variant'];
 	$size: TitleProps['size'];
@@ -41,7 +43,7 @@ const StyledTitle = styled.span<StyledTitleProps>`
 	font-weight: 500;
 `;
 
-type TitleProps = React.HTMLAttributes<HTMLSpanElement> & {
+type TitleProps = HtmlAttributes<HTMLSpanElement> & {
 	variant?: 'default' | 'primary' | 'danger';
 	size?: 'small' | 'medium' | 'large';
 };

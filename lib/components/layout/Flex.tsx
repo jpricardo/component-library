@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { HtmlAttributes } from '..';
+
 type StyledFlexProps = {
 	$gap: FlexProps['gap'];
 	$justify: FlexProps['justify'];
@@ -16,7 +18,7 @@ const StyledFlex = styled.div<StyledFlexProps>`
 	align-items: ${({ $align }) => $align};
 `;
 
-export type FlexProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
+export type FlexProps = HtmlAttributes<HTMLDivElement> & {
 	gap?: string;
 	justify?: React.CSSProperties['justifyContent'];
 	align?: React.CSSProperties['alignItems'];

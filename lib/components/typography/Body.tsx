@@ -1,6 +1,8 @@
 import { memo } from 'react';
 import styled from 'styled-components';
 
+import { HtmlAttributes } from '..';
+
 type StyledBodyProps = {
 	$variant: BodyProps['variant'];
 	$size: BodyProps['size'];
@@ -41,7 +43,7 @@ const StyledBody = styled.span<StyledBodyProps>`
 	font-weight: 400;
 `;
 
-type BodyProps = React.HTMLAttributes<HTMLSpanElement> & {
+type BodyProps = HtmlAttributes<HTMLSpanElement> & {
 	variant?: 'default' | 'primary' | 'danger';
 	size?: 'small' | 'medium' | 'large';
 };

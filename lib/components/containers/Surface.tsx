@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { HtmlAttributes } from '..';
 import { Theme } from '../../helpers';
 
 type StyledSurfaceProps = {
@@ -30,7 +31,7 @@ const StyledSurface = styled.div<StyledSurfaceProps>`
 	}};
 `;
 
-export type SurfaceProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
+export type SurfaceProps = HtmlAttributes<HTMLDivElement> & {
 	variant?: 'default' | 'primary' | 'danger';
 	shadow?: keyof Theme['shadows'];
 };

@@ -1,6 +1,8 @@
 import { memo } from 'react';
 import styled from 'styled-components';
 
+import { HtmlAttributes } from '..';
+
 type StyledLabelProps = {
 	$variant: LabelProps['variant'];
 	$size: LabelProps['size'];
@@ -41,7 +43,7 @@ const StyledLabel = styled.label<StyledLabelProps>`
 	font-weight: 400;
 `;
 
-type LabelProps = React.HTMLAttributes<HTMLLabelElement> & {
+type LabelProps = HtmlAttributes<HTMLLabelElement> & {
 	htmlFor?: string;
 	variant?: 'default' | 'primary' | 'danger';
 	size?: 'small' | 'medium' | 'large';

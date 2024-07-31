@@ -1,6 +1,8 @@
 import { memo } from 'react';
 import styled from 'styled-components';
 
+import { HtmlAttributes } from '..';
+
 type StyledHeadlineProps = {
 	$variant: HeadlineProps['variant'];
 	$size: HeadlineProps['size'];
@@ -41,7 +43,7 @@ const StyledHeadline = styled.span<StyledHeadlineProps>`
 	font-weight: 400;
 `;
 
-type HeadlineProps = React.HTMLAttributes<HTMLSpanElement> & {
+type HeadlineProps = HtmlAttributes<HTMLSpanElement> & {
 	variant?: 'default' | 'primary' | 'danger';
 	size?: 'small' | 'medium' | 'large';
 };

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { HtmlAttributes } from '..';
 import { Theme } from '../../helpers';
 
 type StyledContainerProps = {
@@ -35,7 +36,7 @@ const StyledContainer = styled.div<StyledContainerProps>`
 	}};
 `;
 
-export type ContainerProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
+export type ContainerProps = HtmlAttributes<HTMLDivElement> & {
 	variant?: 'default' | 'primary' | 'danger' | 'lowest' | 'low' | 'high' | 'highest';
 	shadow?: keyof Theme['shadows'];
 };

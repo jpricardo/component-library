@@ -1,6 +1,8 @@
 import { memo } from 'react';
 import styled from 'styled-components';
 
+import { HtmlAttributes } from '..';
+
 type StyledFootnoteProps = {
 	$variant: FootnoteProps['variant'];
 	$size: FootnoteProps['size'];
@@ -42,7 +44,7 @@ const StyledFootnote = styled.span<StyledFootnoteProps>`
 	opacity: 0.85;
 `;
 
-type FootnoteProps = React.HTMLAttributes<HTMLSpanElement> & {
+type FootnoteProps = HtmlAttributes<HTMLSpanElement> & {
 	variant?: 'default' | 'primary' | 'danger';
 	size?: 'small' | 'medium' | 'large';
 };
