@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Theme } from '../../themes';
+import { Theme } from '../../helpers';
 
 type StyledContainerProps = {
 	$variant: ContainerProps['variant'];
