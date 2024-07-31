@@ -41,6 +41,7 @@
 		"@storybook/react-vite": "^8.2.6",
 		"@storybook/test": "^8.2.6",
 		"@storybook/types": "^8.2.6",
+		"@types/color": "^3.0.6",
 		"@types/node": "^20.14.12",
 		"@types/react": "^18.3.3",
 		"@types/react-dom": "^18.3.0",
@@ -59,5 +60,8 @@
 		"typescript": "^5.2.2",
 		"vite": "^5.3.4",
 		"vite-plugin-dts": "^4.0.0-beta.1"
+	},
+	"dependencies": {
+		"color": "^4.2.3"
 	}
 }
