@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { Flex } from '../containers/Flex';
-import { Spin } from '../feedback/Spin';
+import { Spin } from '../feedback';
+import { Flex } from '../layout';
 
 type VariantType = 'default' | 'primary' | 'danger' | 'text';
 

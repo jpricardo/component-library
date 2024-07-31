@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
-import { Flex } from '../containers';
 import { Button } from '../inputs';
+import { Flex } from '../layout';
 
 export type PaginationProps = {
 	id?: string;

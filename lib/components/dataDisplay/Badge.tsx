@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Flex } from '../containers';
+import { Flex } from '../layout';
 
 type StyledBadgeProps = {
 	$variant: BadgeProps['variant'];

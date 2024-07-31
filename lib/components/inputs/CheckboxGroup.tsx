@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { Flex } from '../layout';
 import { Typography } from '../typography';
 
 const StyledInput = styled.input`
@@ -44,10 +45,7 @@ export function CheckboxGroup<T extends OptionType>({
 			{options.map((option, index) => {
 				const checkboxName = `${name}-checkbox-item-${index}`;
 				return (
-					<div
-						key={checkboxName}
-						style={{ display: 'flex', flexDirection: 'row', gap: '0.25rem', alignItems: 'center' }}
-					>
+					<Flex key={checkboxName} gap='0.25rem' align='center'>
 						<StyledInput
 							type='checkbox'
 							id={checkboxName}
@@ -64,7 +62,7 @@ export function CheckboxGroup<T extends OptionType>({
 						<StyledLabel htmlFor={checkboxName} $disabled={disabled}>
 							{option}
 						</StyledLabel>
-					</div>
+					</Flex>
 				);
 			})}
 		</div>
