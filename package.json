@@ -20,7 +20,8 @@
 		"prepublishOnly": "npm run build",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
-		"chromatic": "npx chromatic --exit-zero-on-changes"
+		"chromatic": "npx chromatic --exit-zero-on-changes",
+		"test-storybook": "test-storybook"
 	},
 	"peerDependencies": {
 		"react": "^18.3.1",
@@ -39,6 +40,7 @@
 		"@storybook/react": "^8.2.6",
 		"@storybook/react-vite": "^8.2.6",
 		"@storybook/test": "^8.2.6",
+		"@storybook/test-runner": "^0.19.1",
 		"@storybook/types": "^8.2.6",
 		"@types/color": "^3.0.6",
 		"@types/node": "^20.14.12",
