@@ -13,6 +13,7 @@ const StyledButton = styled.button<StyledButtonProps>`
 	font-family: ${({ theme }) => theme.typography.fontFamily};
 	user-select: none;
 
+	height: fit-content;
 	font-size: 14px;
 	line-height: 14px;
 	padding: 0.5rem 1rem;
