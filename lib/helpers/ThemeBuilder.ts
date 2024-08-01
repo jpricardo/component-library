@@ -150,11 +150,11 @@ export class ThemeBuilder {
 	private static dark: ThemeDefaults = {
 		primary: '#41649F',
 		error: '#FF1F1F',
-		container: '#525152',
+		container: '#313133',
 	};
 
 	private static getDarkShadows(): Shadows {
-		const shadowColor = this.getColorValue(this.black.fade(0.5));
+		const shadowColor = this.getColorValue(this.black.fade(0.25));
 
 		return {
 			xs: `${shadowColor} 0px 0px 5px 1px`,
