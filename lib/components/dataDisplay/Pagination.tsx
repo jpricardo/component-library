@@ -24,7 +24,7 @@ export function Pagination({
 	onNextPage,
 	...props
 }: PaginationProps) {
-	useEffect(() => onClick(0), [pageAmmount]);
+	useEffect(() => onClick(0), [pageAmmount, onClick]);
 
 	const pages = Array.from({ length: pageAmmount }, (_, index) => index + 1);
 

@@ -11,6 +11,7 @@ const StyledButton = styled.button<StyledButtonProps>`
 	transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
 	font-family: ${({ theme }) => theme.typography.fontFamily};
+	user-select: none;
 
 	font-size: 14px;
 	line-height: 14px;
