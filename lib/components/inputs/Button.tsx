@@ -43,7 +43,7 @@ const StyledButton = styled.button<StyledButtonProps>`
 	background-color: ${({ $variant, theme }): React.CSSProperties['backgroundColor'] => {
 		switch ($variant) {
 			case 'default':
-				return theme.colors.containerLowest;
+				return theme.colors.containerLow;
 			case 'primary':
 				return theme.colors.primary;
 			case 'danger':

@@ -6,7 +6,7 @@ const StyledInput = styled.input`
 	font-family: ${({ theme }) => theme.typography.fontFamily};
 
 	color: ${({ theme }) => theme.colors.onContainer};
-	background-color: ${({ theme }) => theme.colors.containerLowest};
+	background-color: ${({ theme }) => theme.colors.containerLow};
 
 	font-size: 14px;
 	line-height: 14px;
