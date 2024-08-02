@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 
@@ -38,6 +38,15 @@ const StyledMask = styled.div<{ $opacity: number }>`
 	opacity: ${({ $opacity }) => $opacity};
 `;
 
+// Should prevent body scrolling when the modal is open
+const mount = () => {
+	document.body.style.overflow = 'hidden';
+};
+
+const unmount = () => {
+	document.body.style.overflow = 'unset';
+};
+
 export type ModalProps = {
 	open: boolean;
 	onClose: () => void;
@@ -67,6 +76,14 @@ export function Modal({
 }: ModalProps) {
 	const ref = useRef<HTMLDivElement | null>(null);
 	useOnClickOutside<HTMLDivElement>(ref, open, () => maskClosable && onClose());
+
+	useEffect(() => {
+		// Regular flow, controlled
+		open ? mount() : unmount();
+
+		// For safety, should not softlock the app on abrupt dismount
+		return unmount;
+	}, [open]);
 
 	return (
 		<>
