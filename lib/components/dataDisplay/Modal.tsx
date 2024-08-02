@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 
 import { useOnClickOutside } from '../../hooks';
 import { Button } from '../inputs';
@@ -74,6 +74,8 @@ export function Modal({
 	footer,
 	...props
 }: ModalProps) {
+	const { colors } = useTheme();
+
 	const ref = useRef<HTMLDivElement | null>(null);
 	useOnClickOutside<HTMLDivElement>(ref, open, () => maskClosable && onClose());
 
@@ -99,7 +101,15 @@ export function Modal({
 										<Typography.Title>{title}</Typography.Title>
 
 										{closeBtn && (
-											<Button variant='text' onClick={onClose} style={{ fontFamily: 'monospace' }}>
+											<Button
+												variant='text'
+												onClick={onClose}
+												style={{
+													fontFamily: 'monospace',
+													fontWeight: 800,
+													color: colors.outline,
+												}}
+											>
 												X
 											</Button>
 										)}
