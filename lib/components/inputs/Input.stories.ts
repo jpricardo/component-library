@@ -1,14 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, fn, userEvent } from '@storybook/test';
 
-import defaultDecorator from '../../defaultDecorator';
-
 import { Input } from './Input';
 
 const meta: Meta<typeof Input> = {
 	title: 'Components/Inputs/Input',
 	component: Input,
-	decorators: [defaultDecorator],
+	parameters: { layout: 'centered' },
 	tags: ['autodocs'],
 	args: {
 		placeholder: 'placeholder',

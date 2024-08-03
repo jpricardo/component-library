@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import defaultDecorator from '../../defaultDecorator';
-
 import { Divider } from './Divider';
 
 const meta: Meta<typeof Divider> = {
 	title: 'Components/Layout/Divider',
 	component: Divider,
-	decorators: [defaultDecorator],
+	parameters: { layout: 'centered' },
 	tags: ['autodocs'],
 	args: {},
 };
@@ -17,7 +15,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-	args: {},
+	args: { style: { minWidth: '100px' } },
 };
 
 export const Vertical: Story = {

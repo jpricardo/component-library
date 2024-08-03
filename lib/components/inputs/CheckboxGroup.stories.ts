@@ -1,14 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { expect, fn, userEvent } from '@storybook/test';
 
-import defaultDecorator from '../../defaultDecorator';
-
 import { CheckboxGroup } from './CheckboxGroup';
 
 const meta: Meta<typeof CheckboxGroup> = {
 	title: 'Components/Inputs/CheckboxGroup',
 	component: CheckboxGroup,
-	decorators: [defaultDecorator],
+	parameters: { layout: 'centered' },
 	tags: ['autodocs'],
 	args: {
 		name: 'CheckboxGroup',

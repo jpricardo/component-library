@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import defaultDecorator from '../../defaultDecorator';
-
 import { Flex } from './Flex';
 
 const meta: Meta<typeof Flex> = {
 	title: 'Components/Layout/Flex',
 	component: Flex,
-	decorators: [defaultDecorator],
+	parameters: { layout: 'centered' },
 	tags: ['autodocs'],
 	args: {
 		justify: 'center',

@@ -1,14 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import defaultDecorator from '../../defaultDecorator';
-
 import { Pagination } from './Pagination';
 
 const meta: Meta<typeof Pagination> = {
 	title: 'Components/DataDisplay/Pagination',
 	component: Pagination,
-	decorators: [defaultDecorator],
+	parameters: { layout: 'centered' },
 	tags: ['autodocs'],
 	args: {
 		pageAmmount: 5,

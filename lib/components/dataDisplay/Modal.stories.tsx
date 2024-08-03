@@ -2,8 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { useState } from 'react';
 
-import defaultDecorator from '../../defaultDecorator';
-
 import { Button } from '../inputs';
 import { Flex } from '../layout';
 import { Modal, ModalProps } from './Modal';
@@ -41,7 +39,7 @@ function TestComponent(storyArgs: ModalProps) {
 const meta: Meta<typeof Modal> = {
 	title: 'Components/DataDisplay/Modal',
 	component: Modal,
-	decorators: [defaultDecorator],
+	parameters: { layout: 'centered' },
 	tags: ['autodocs'],
 	render: (args) => <TestComponent {...args} />,
 	args: {

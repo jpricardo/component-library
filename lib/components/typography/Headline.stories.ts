@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import defaultDecorator from '../../defaultDecorator';
-
 import { Typography } from '.';
 
 const meta: Meta<typeof Typography.Headline> = {
 	title: 'Components/Typography/Headline',
 	component: Typography.Headline,
-	decorators: [defaultDecorator],
+	parameters: { layout: 'centered' },
 	tags: ['autodocs'],
 	args: {
 		variant: 'default',

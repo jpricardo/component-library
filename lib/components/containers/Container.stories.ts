@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import defaultDecorator from '../../defaultDecorator';
-
 import { Container } from './Container';
 
 const meta: Meta<typeof Container> = {
 	title: 'Components/Containers/Container',
 	component: Container,
-	decorators: [defaultDecorator],
+	parameters: { layout: 'centered' },
 	tags: ['autodocs'],
 	args: {
 		variant: 'default',

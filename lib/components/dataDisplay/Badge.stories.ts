@@ -1,14 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import defaultDecorator from '../../defaultDecorator';
-
 import { Badge } from './Badge';
 
 const meta: Meta<typeof Badge> = {
 	title: 'Components/DataDisplay/Badge',
 	component: Badge,
-	decorators: [defaultDecorator],
+	parameters: { layout: 'centered' },
 	tags: ['autodocs'],
 	args: {
 		variant: 'default',
