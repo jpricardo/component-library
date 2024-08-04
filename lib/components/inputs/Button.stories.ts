@@ -47,12 +47,45 @@ export const Loading: Story = {
 
 export const Primary: Story = {
 	args: { variant: 'primary' },
+	play: Default.play,
+};
+
+export const PrimaryDisabled: Story = {
+	args: { variant: 'primary', disabled: true },
+	play: Disabled.play,
+};
+
+export const PrimaryLoading: Story = {
+	args: { variant: 'primary', loading: true },
+	play: Loading.play,
 };
 
 export const Danger: Story = {
 	args: { variant: 'danger' },
+	play: Default.play,
+};
+
+export const DangerDisabled: Story = {
+	args: { variant: 'danger', disabled: true },
+	play: Disabled.play,
+};
+
+export const DangerLoading: Story = {
+	args: { variant: 'danger', loading: true },
+	play: Loading.play,
 };
 
 export const Text: Story = {
 	args: { variant: 'text' },
+	play: Default.play,
+};
+
+export const TextDisabled: Story = {
+	args: { variant: 'text', disabled: true },
+	play: Disabled.play,
+};
+
+export const TextLoading: Story = {
+	args: { variant: 'text', loading: true },
+	play: Loading.play,
 };
