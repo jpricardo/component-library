@@ -10,7 +10,10 @@ function TestComponent(storyArgs: ModalProps) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const onClick = () => setIsOpen(true);
-	const onClose = () => setIsOpen(false);
+	const onClose = () => {
+		setIsOpen(false);
+		storyArgs.onClose();
+	};
 
 	return (
 		<>
