@@ -46,6 +46,7 @@ const StyledCloseBtn = styled.span`
 	margin-top: -1px;
 	font-weight: 600;
 	line-height: 10px;
+	user-select: none;
 `;
 
 export type BadgeProps = HtmlAttributes<HTMLDivElement> & {
@@ -53,13 +54,17 @@ export type BadgeProps = HtmlAttributes<HTMLDivElement> & {
 	closable?: boolean;
 	onClose?: () => void;
 };
-export function Badge({ variant = 'default', closable, children, ...props }: BadgeProps) {
+export function Badge({ variant = 'default', closable, children, onClose, ...props }: BadgeProps) {
 	return (
 		<StyledBadge $variant={variant} {...props}>
 			<Flex align='center' gap='0.5rem'>
 				{children}
 
-				{closable && <StyledCloseBtn>x</StyledCloseBtn>}
+				{closable && (
+					<StyledCloseBtn onClick={onClose} role='button'>
+						x
+					</StyledCloseBtn>
+				)}
 			</Flex>
 		</StyledBadge>
 	);

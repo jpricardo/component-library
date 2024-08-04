@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import { expect, fn, userEvent } from '@storybook/test';
 
 import { Badge } from './Badge';
 
@@ -26,6 +26,10 @@ export const Default: Story = {
 
 export const Closable: Story = {
 	args: { closable: true },
+	play: async ({ canvas, args }) => {
+		await userEvent.click(canvas.getByRole('button'));
+		expect(args.onClose).toHaveBeenCalled();
+	},
 };
 
 export const Primary: Story = {
@@ -34,6 +38,7 @@ export const Primary: Story = {
 
 export const PrimaryClosable: Story = {
 	args: { variant: 'primary', closable: true },
+	play: Closable.play,
 };
 
 export const Secondary: Story = {
@@ -42,6 +47,7 @@ export const Secondary: Story = {
 
 export const SecondaryClosable: Story = {
 	args: { variant: 'secondary', closable: true },
+	play: Closable.play,
 };
 
 export const Danger: Story = {
@@ -50,4 +56,5 @@ export const Danger: Story = {
 
 export const DangerClosable: Story = {
 	args: { variant: 'danger', closable: true },
+	play: Closable.play,
 };
