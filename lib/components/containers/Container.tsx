@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { HtmlAttributes } from '..';
+import { ContainerVariant, HtmlAttributes } from '..';
 import { Theme } from '../../helpers';
 
 type StyledContainerProps = {
@@ -16,12 +16,14 @@ const StyledContainer = styled.div<StyledContainerProps>`
 
 	color: ${({ $variant, theme }) => {
 		if ($variant === 'primary') return theme.colors.onPrimaryContainer;
+		if ($variant === 'secondary') return theme.colors.onSecondaryContainer;
 		if ($variant === 'danger') return theme.colors.onErrorContainer;
 
 		return theme.colors.onContainer;
 	}};
 	background-color: ${({ $variant, theme }) => {
 		if ($variant === 'primary') return theme.colors.primaryContainer;
+		if ($variant === 'secondary') return theme.colors.secondaryContainer;
 		if ($variant === 'danger') return theme.colors.errorContainer;
 		if ($variant === 'lowest') return theme.colors.containerLowest;
 		if ($variant === 'low') return theme.colors.containerLow;
@@ -37,7 +39,7 @@ const StyledContainer = styled.div<StyledContainerProps>`
 `;
 
 export type ContainerProps = HtmlAttributes<HTMLDivElement> & {
-	variant?: 'default' | 'primary' | 'danger' | 'lowest' | 'low' | 'high' | 'highest';
+	variant?: ContainerVariant | 'lowest' | 'low' | 'high' | 'highest';
 	shadow?: keyof Theme['shadows'];
 };
 

@@ -16,6 +16,10 @@ type Colors = RecordOf<
 	| 'onPrimary'
 	| 'primaryContainer'
 	| 'onPrimaryContainer'
+	| 'secondary'
+	| 'onSecondary'
+	| 'secondaryContainer'
+	| 'onSecondaryContainer'
 	| 'error'
 	| 'onError'
 	| 'errorContainer'
@@ -30,6 +34,7 @@ export type Theme = { colors: Colors; shadows: Shadows; typography: Typography }
 
 type ThemeDefaults = {
 	primary: string;
+	secondary: string;
 	error: string;
 	container: string;
 };
@@ -61,6 +66,7 @@ export class ThemeBuilder {
 	// Light theme
 	private static light: ThemeDefaults = {
 		primary: '#2F4874',
+		secondary: '#44555F',
 		error: '#940F0F',
 		container: '#EDE9ED',
 	};
@@ -111,6 +117,7 @@ export class ThemeBuilder {
 
 	static getLightTheme(tokens?: ThemeTokens): Theme {
 		const primaryPalette = this.getLightColorPalette(tokens?.primary || this.light.primary);
+		const secondaryPalette = this.getLightColorPalette(tokens?.secondary || this.light.secondary);
 		const errorPalette = this.getLightColorPalette(tokens?.error || this.light.error);
 		const containerPalette = this.getLightContainerPalette(tokens?.container || this.light.container);
 
@@ -138,6 +145,11 @@ export class ThemeBuilder {
 				primaryContainer: primaryPalette.container,
 				onPrimaryContainer: primaryPalette.onContainer,
 
+				secondary: secondaryPalette.color,
+				onSecondary: secondaryPalette.onColor,
+				secondaryContainer: secondaryPalette.container,
+				onSecondaryContainer: secondaryPalette.onContainer,
+
 				error: errorPalette.color,
 				onError: errorPalette.onColor,
 				errorContainer: errorPalette.container,
@@ -148,8 +160,9 @@ export class ThemeBuilder {
 
 	// Dark theme
 	private static dark: ThemeDefaults = {
-		primary: '#41649F',
-		error: '#FF1F1F',
+		primary: '#799AD2',
+		secondary: '#7AA4B8',
+		error: '#FF6666',
 		container: '#313133',
 	};
 
@@ -187,7 +200,7 @@ export class ThemeBuilder {
 
 	private static getDarkColorPalette(token: string): ColorPalette {
 		const baseColor = Color(token);
-		const containerColor = baseColor.darken(0.5).desaturate(0.5);
+		const containerColor = baseColor.darken(0.7).desaturate(0.75);
 
 		return {
 			color: this.getColorValue(baseColor),
@@ -199,6 +212,7 @@ export class ThemeBuilder {
 
 	static getDarkTheme(tokens?: ThemeTokens): Theme {
 		const primaryPalette = this.getDarkColorPalette(tokens?.primary || this.dark.primary);
+		const secondaryPalette = this.getDarkColorPalette(tokens?.secondary || this.dark.secondary);
 		const errorPalette = this.getDarkColorPalette(tokens?.error || this.dark.error);
 		const containerPalette = this.getDarkContainerPalette(tokens?.container || this.dark.container);
 
@@ -225,6 +239,11 @@ export class ThemeBuilder {
 				onPrimary: primaryPalette.onColor,
 				primaryContainer: primaryPalette.container,
 				onPrimaryContainer: primaryPalette.onContainer,
+
+				secondary: secondaryPalette.color,
+				onSecondary: secondaryPalette.onColor,
+				secondaryContainer: secondaryPalette.container,
+				onSecondaryContainer: secondaryPalette.onContainer,
 
 				error: errorPalette.color,
 				onError: errorPalette.onColor,

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import styled from 'styled-components';
 
-import { HtmlAttributes } from '..';
+import { HtmlAttributes, TypographySize, TypographyVariant } from '..';
 
 type StyledTitleProps = {
 	$variant: TitleProps['variant'];
@@ -13,6 +13,7 @@ const StyledTitle = styled.span<StyledTitleProps>`
 
 	color: ${({ $variant, theme }) => {
 		if ($variant === 'primary') return theme.colors.primary;
+		if ($variant === 'secondary') return theme.colors.secondary;
 		if ($variant === 'danger') return theme.colors.error;
 
 		return 'inherit';
@@ -44,8 +45,8 @@ const StyledTitle = styled.span<StyledTitleProps>`
 `;
 
 type TitleProps = HtmlAttributes<HTMLSpanElement> & {
-	variant?: 'default' | 'primary' | 'danger';
-	size?: 'small' | 'medium' | 'large';
+	variant?: TypographyVariant;
+	size?: TypographySize;
 };
 function Title({ variant = 'default', size = 'medium', ...props }: TitleProps) {
 	return <StyledTitle $variant={variant} $size={size} {...props} />;

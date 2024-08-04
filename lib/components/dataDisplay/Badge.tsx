@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { HtmlAttributes } from '..';
 import { Flex } from '../layout';
 
+type VariantType = 'default' | 'primary' | 'secondary' | 'danger';
+
 type StyledBadgeProps = {
 	$variant: BadgeProps['variant'];
 };
@@ -18,11 +20,13 @@ const StyledBadge = styled.div<StyledBadgeProps>`
 
 	color: ${({ $variant, theme }) => {
 		if ($variant === 'primary') return theme.colors.primary;
+		if ($variant === 'secondary') return theme.colors.secondary;
 		if ($variant === 'danger') return theme.colors.error;
 		return theme.colors.onSurface;
 	}};
 	background-color: ${({ $variant, theme }) => {
 		if ($variant === 'primary') return theme.colors.primaryContainer;
+		if ($variant === 'secondary') return theme.colors.secondaryContainer;
 		if ($variant === 'danger') return theme.colors.errorContainer;
 		return theme.colors.surface;
 	}};
@@ -31,6 +35,7 @@ const StyledBadge = styled.div<StyledBadgeProps>`
 	border-style: solid;
 	border-color: ${({ $variant, theme }) => {
 		if ($variant === 'primary') return theme.colors.primary;
+		if ($variant === 'secondary') return theme.colors.secondary;
 		if ($variant === 'danger') return theme.colors.error;
 		return theme.colors.outline;
 	}};
@@ -44,7 +49,7 @@ const StyledCloseBtn = styled.span`
 `;
 
 export type BadgeProps = HtmlAttributes<HTMLDivElement> & {
-	variant?: 'default' | 'primary' | 'danger';
+	variant?: VariantType;
 	closable?: boolean;
 	onClose?: () => void;
 };

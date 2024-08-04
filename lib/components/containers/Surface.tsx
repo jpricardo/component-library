@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { HtmlAttributes } from '..';
+import { ContainerVariant, HtmlAttributes } from '..';
 import { Theme } from '../../helpers';
 
 type StyledSurfaceProps = {
@@ -15,12 +15,14 @@ const StyledSurface = styled.div<StyledSurfaceProps>`
 
 	color: ${({ $variant, theme }) => {
 		if ($variant === 'primary') return theme.colors.onPrimaryContainer;
+		if ($variant === 'secondary') return theme.colors.onSecondaryContainer;
 		if ($variant === 'danger') return theme.colors.onErrorContainer;
 
 		return theme.colors.onSurface;
 	}};
 	background-color: ${({ $variant, theme }) => {
 		if ($variant === 'primary') return theme.colors.primaryContainer;
+		if ($variant === 'secondary') return theme.colors.secondaryContainer;
 		if ($variant === 'danger') return theme.colors.errorContainer;
 
 		return theme.colors.surface;
@@ -32,7 +34,7 @@ const StyledSurface = styled.div<StyledSurfaceProps>`
 `;
 
 export type SurfaceProps = HtmlAttributes<HTMLDivElement> & {
-	variant?: 'default' | 'primary' | 'danger';
+	variant?: ContainerVariant;
 	shadow?: keyof Theme['shadows'];
 };
 

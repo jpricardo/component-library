@@ -60,6 +60,21 @@ export const PrimaryLoading: Story = {
 	play: Loading.play,
 };
 
+export const Secondary: Story = {
+	args: { variant: 'secondary' },
+	play: Default.play,
+};
+
+export const SecondaryDisabled: Story = {
+	args: { variant: 'secondary', disabled: true },
+	play: Disabled.play,
+};
+
+export const SecondaryLoading: Story = {
+	args: { variant: 'secondary', loading: true },
+	play: Loading.play,
+};
+
 export const Danger: Story = {
 	args: { variant: 'danger' },
 	play: Default.play,

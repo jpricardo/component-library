@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import styled from 'styled-components';
 
-import { HtmlAttributes } from '..';
+import { HtmlAttributes, TypographySize, TypographyVariant } from '..';
 
 type StyledLabelProps = {
 	$variant: LabelProps['variant'];
@@ -13,6 +13,7 @@ const StyledLabel = styled.label<StyledLabelProps>`
 
 	color: ${({ $variant, theme }) => {
 		if ($variant === 'primary') return theme.colors.primary;
+		if ($variant === 'secondary') return theme.colors.secondary;
 		if ($variant === 'danger') return theme.colors.error;
 
 		return 'inherit';
@@ -45,8 +46,8 @@ const StyledLabel = styled.label<StyledLabelProps>`
 
 type LabelProps = HtmlAttributes<HTMLLabelElement> & {
 	htmlFor?: string;
-	variant?: 'default' | 'primary' | 'danger';
-	size?: 'small' | 'medium' | 'large';
+	variant?: TypographyVariant;
+	size?: TypographySize;
 };
 function Label({ variant = 'default', size = 'medium', ...props }: LabelProps) {
 	return <StyledLabel $variant={variant} $size={size} {...props} />;

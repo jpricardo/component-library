@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Spin } from '../feedback';
 import { Flex } from '../layout';
 
-type VariantType = 'default' | 'primary' | 'danger' | 'text';
+type VariantType = 'default' | 'primary' | 'secondary' | 'danger' | 'text';
 
 type StyledButtonProps = { $variant: VariantType; $loading?: boolean };
 
@@ -33,6 +33,8 @@ const StyledButton = styled.button<StyledButtonProps>`
 				return theme.colors.outline;
 			case 'primary':
 				return theme.colors.primary;
+			case 'secondary':
+				return theme.colors.secondary;
 			case 'danger':
 				return theme.colors.error;
 			case 'text':
@@ -46,6 +48,8 @@ const StyledButton = styled.button<StyledButtonProps>`
 				return theme.colors.containerLow;
 			case 'primary':
 				return theme.colors.primary;
+			case 'secondary':
+				return 'transparent';
 			case 'danger':
 				return 'transparent';
 			case 'text':
@@ -59,6 +63,8 @@ const StyledButton = styled.button<StyledButtonProps>`
 				return theme.colors.onSurface;
 			case 'primary':
 				return theme.colors.onPrimary;
+			case 'secondary':
+				return theme.colors.secondary;
 			case 'danger':
 				return theme.colors.error;
 			case 'text':
@@ -69,9 +75,11 @@ const StyledButton = styled.button<StyledButtonProps>`
 	&:hover {
 		box-shadow: ${({ $variant, theme }) => ($variant === 'text' ? 0 : theme.shadows.xs)};
 		background-color: ${({ $variant, theme }) => {
+			if ($variant === 'secondary') return theme.colors.secondary;
 			if ($variant === 'danger') return theme.colors.error;
 		}};
 		color: ${({ $variant, theme }) => {
+			if ($variant === 'secondary') return theme.colors.onSecondary;
 			if ($variant === 'danger') return theme.colors.onError;
 		}};
 		border-color: ${({ $variant, theme }) => {

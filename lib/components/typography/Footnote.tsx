@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import styled from 'styled-components';
 
-import { HtmlAttributes } from '..';
+import { HtmlAttributes, TypographySize, TypographyVariant } from '..';
 
 type StyledFootnoteProps = {
 	$variant: FootnoteProps['variant'];
@@ -13,6 +13,7 @@ const StyledFootnote = styled.span<StyledFootnoteProps>`
 
 	color: ${({ $variant, theme }) => {
 		if ($variant === 'primary') return theme.colors.primary;
+		if ($variant === 'secondary') return theme.colors.secondary;
 		if ($variant === 'danger') return theme.colors.error;
 
 		return 'inherit';
@@ -45,8 +46,8 @@ const StyledFootnote = styled.span<StyledFootnoteProps>`
 `;
 
 type FootnoteProps = HtmlAttributes<HTMLSpanElement> & {
-	variant?: 'default' | 'primary' | 'danger';
-	size?: 'small' | 'medium' | 'large';
+	variant?: TypographyVariant;
+	size?: TypographySize;
 };
 function Footnote({ variant = 'default', size = 'medium', ...props }: FootnoteProps) {
 	return <StyledFootnote $variant={variant} $size={size} {...props} />;
