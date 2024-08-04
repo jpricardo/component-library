@@ -72,7 +72,7 @@ const StyledButton = styled.button<StyledButtonProps>`
 		}
 	}};
 
-	&:hover {
+	&:hover:not(:disabled) {
 		box-shadow: ${({ $variant, theme }) => ($variant === 'text' ? 0 : theme.shadows.xs)};
 		background-color: ${({ $variant, theme }) => {
 			if ($variant === 'secondary') return theme.colors.secondary;
