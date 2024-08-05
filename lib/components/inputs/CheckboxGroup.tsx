@@ -41,9 +41,10 @@ export function CheckboxGroup<T extends OptionType>({
 	};
 
 	return (
-		<div style={{ display: 'flex', flexDirection: 'column', gap: '0.125rem' }}>
+		<Flex gap='0.125rem' vertical>
 			{options.map((option, index) => {
 				const checkboxName = `${name}-checkbox-item-${index}`;
+
 				return (
 					<Flex key={checkboxName} gap='0.25rem' align='center'>
 						<StyledInput
@@ -65,6 +66,6 @@ export function CheckboxGroup<T extends OptionType>({
 					</Flex>
 				);
 			})}
-		</div>
+		</Flex>
 	);
 }
