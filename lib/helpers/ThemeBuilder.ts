@@ -72,14 +72,14 @@ export class ThemeBuilder {
 	};
 
 	private static getLightShadows(): Shadows {
-		const shadowColor = this.getColorValue(this.black.fade(0.75));
+		const shadowColor = this.getColorValue(this.black.fade(0.8));
 
 		return {
-			xs: `${shadowColor} 0px 0px 5px 1px`,
-			sm: `${shadowColor} 0px 0px 7px 1px`,
-			md: `${shadowColor} 0px 0px 10px 1px`,
-			lg: `${shadowColor} 0px 0px 20px 1px`,
-			xl: `${shadowColor} 0px 0px 40px 1px`,
+			xs: `${shadowColor} 0px 2px 5px 1px`,
+			sm: `${shadowColor} 0px 2px 7px 1px`,
+			md: `${shadowColor} 0px 2px 10px 1px`,
+			lg: `${shadowColor} 0px 2px 20px 1px`,
+			xl: `${shadowColor} 0px 2px 40px 1px`,
 		};
 	}
 
@@ -170,11 +170,11 @@ export class ThemeBuilder {
 		const shadowColor = this.getColorValue(this.black.fade(0.25));
 
 		return {
-			xs: `${shadowColor} 0px 0px 5px 1px`,
-			sm: `${shadowColor} 0px 0px 7px 1px`,
-			md: `${shadowColor} 0px 0px 10px 1px`,
-			lg: `${shadowColor} 0px 0px 20px 1px`,
-			xl: `${shadowColor} 0px 0px 40px 1px`,
+			xs: `${shadowColor} 0px 2px 5px 1px`,
+			sm: `${shadowColor} 0px 2px 7px 1px`,
+			md: `${shadowColor} 0px 2px 10px 1px`,
+			lg: `${shadowColor} 0px 2px 20px 1px`,
+			xl: `${shadowColor} 0px 2px 40px 1px`,
 		};
 	}
 
