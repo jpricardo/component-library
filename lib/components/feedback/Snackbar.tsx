@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import { useSnackbar } from '../../hooks/useSnackbar';
 import { Flex } from '../layout';
 import { Typography } from '../typography';
 
@@ -84,5 +83,3 @@ export function Snackbar({ duration = 5000, closable = true, content, ...props }
 		</StyledSnackbar>
 	);
 }
-
-Snackbar.useSnackbar = useSnackbar;
