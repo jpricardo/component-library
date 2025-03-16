@@ -48,8 +48,8 @@ type ContainerPalette = RecordOf<
 >;
 
 export class ThemeBuilder {
-	private static white = Color('#FAFAFA');
-	private static black = Color('#0a0f0a');
+	private static readonly white = Color('#FAFAFA');
+	private static readonly black = Color('#0a0f0a');
 
 	private static getColorValue(color: Color) {
 		return color.rgb().toString();
@@ -64,7 +64,7 @@ export class ThemeBuilder {
 	}
 
 	// Light theme
-	private static light: ThemeDefaults = {
+	private static readonly lightDefaults: ThemeDefaults = {
 		primary: '#2F4874',
 		secondary: '#44555F',
 		error: '#940F0F',
@@ -116,10 +116,10 @@ export class ThemeBuilder {
 	}
 
 	static getLightTheme(tokens?: ThemeTokens): Theme {
-		const primaryPalette = this.getLightColorPalette(tokens?.primary || this.light.primary);
-		const secondaryPalette = this.getLightColorPalette(tokens?.secondary || this.light.secondary);
-		const errorPalette = this.getLightColorPalette(tokens?.error || this.light.error);
-		const containerPalette = this.getLightContainerPalette(tokens?.container || this.light.container);
+		const primaryPalette = this.getLightColorPalette(tokens?.primary || this.lightDefaults.primary);
+		const secondaryPalette = this.getLightColorPalette(tokens?.secondary || this.lightDefaults.secondary);
+		const errorPalette = this.getLightColorPalette(tokens?.error || this.lightDefaults.error);
+		const containerPalette = this.getLightContainerPalette(tokens?.container || this.lightDefaults.container);
 
 		const shadows = this.getLightShadows();
 		const typography = this.getTypography();
@@ -159,7 +159,7 @@ export class ThemeBuilder {
 	}
 
 	// Dark theme
-	private static dark: ThemeDefaults = {
+	private static readonly darkDefaults: ThemeDefaults = {
 		primary: '#799AD2',
 		secondary: '#7AA4B8',
 		error: '#FF6666',
@@ -211,10 +211,10 @@ export class ThemeBuilder {
 	}
 
 	static getDarkTheme(tokens?: ThemeTokens): Theme {
-		const primaryPalette = this.getDarkColorPalette(tokens?.primary || this.dark.primary);
-		const secondaryPalette = this.getDarkColorPalette(tokens?.secondary || this.dark.secondary);
-		const errorPalette = this.getDarkColorPalette(tokens?.error || this.dark.error);
-		const containerPalette = this.getDarkContainerPalette(tokens?.container || this.dark.container);
+		const primaryPalette = this.getDarkColorPalette(tokens?.primary || this.darkDefaults.primary);
+		const secondaryPalette = this.getDarkColorPalette(tokens?.secondary || this.darkDefaults.secondary);
+		const errorPalette = this.getDarkColorPalette(tokens?.error || this.darkDefaults.error);
+		const containerPalette = this.getDarkContainerPalette(tokens?.container || this.darkDefaults.container);
 
 		const shadows = this.getDarkShadows();
 		const typography = this.getTypography();
