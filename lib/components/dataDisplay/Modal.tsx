@@ -81,7 +81,8 @@ export function Modal({
 
 	useEffect(() => {
 		// Regular flow, controlled
-		open ? mount() : unmount();
+		if (open) mount();
+		else unmount();
 
 		// For safety, should not softlock the app on abrupt dismount
 		return unmount;
@@ -104,11 +105,7 @@ export function Modal({
 											<Button
 												variant='text'
 												onClick={onClose}
-												style={{
-													fontFamily: 'monospace',
-													fontWeight: 800,
-													color: colors.outline,
-												}}
+												style={{ fontFamily: 'monospace', fontWeight: 800, color: colors.outline }}
 											>
 												X
 											</Button>

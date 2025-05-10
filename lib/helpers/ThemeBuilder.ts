@@ -1,4 +1,4 @@
-import Color from 'color';
+import Color, { ColorInstance } from 'color';
 
 type RecordOf<T extends string, K = string> = { [Q in T]: K };
 
@@ -32,12 +32,7 @@ type Typography = RecordOf<'fontFamily'>;
 
 export type Theme = { colors: Colors; shadows: Shadows; typography: Typography };
 
-type ThemeDefaults = {
-	primary: string;
-	secondary: string;
-	error: string;
-	container: string;
-};
+type ThemeDefaults = { primary: string; secondary: string; error: string; container: string };
 
 type ThemeTokens = Partial<ThemeDefaults>;
 
@@ -51,11 +46,11 @@ export class ThemeBuilder {
 	private static readonly white = Color('#FAFAFA');
 	private static readonly black = Color('#0a0f0a');
 
-	private static getColorValue(color: Color) {
+	private static getColorValue(color: ColorInstance) {
 		return color.rgb().toString();
 	}
 
-	private static getOnColor(color: Color) {
+	private static getOnColor(color: ColorInstance) {
 		return color.isLight() ? this.black : this.white;
 	}
 
