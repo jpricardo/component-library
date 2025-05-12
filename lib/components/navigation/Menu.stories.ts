@@ -8,6 +8,7 @@ const meta: Meta<typeof Menu> = {
 	parameters: { layout: 'centered' },
 	tags: ['autodocs'],
 	args: {
+		defaultActiveKey: 1,
 		items: [
 			{ key: 1, label: 'Item 01' },
 			{ key: 2, label: 'Item 02' },

@@ -68,13 +68,14 @@ export type MenuProps = {
 	id?: string;
 	className?: string;
 
+	defaultActiveKey?: ItemKey;
 	activeKey?: ItemKey;
 	onChange?: (key: ItemKey) => void;
 	items: (Pick<ItemProps, 'label' | 'hidden' | 'disabled'> & { key: ItemKey })[];
 };
 
-export function Menu({ activeKey, onChange, items, ...props }: MenuProps) {
-	const [internalActiveKey, setInternalActiveKey] = useState<ItemKey>();
+export function Menu({ defaultActiveKey, activeKey, onChange, items, ...props }: MenuProps) {
+	const [internalActiveKey, setInternalActiveKey] = useState(defaultActiveKey);
 
 	return (
 		<StyledMenu {...props}>
