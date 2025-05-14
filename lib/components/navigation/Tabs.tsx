@@ -7,26 +7,24 @@ const StyledItem = styled.div<{ $active?: boolean; $disabled?: boolean; $hidden?
 
 	user-select: none;
 	display: ${({ $hidden }) => ($hidden ? 'none' : 'flex')};
-	flex-direction: line;
+	flex-direction: row;
 	align-items: center;
 	justify-content: start;
 	gap: 1rem;
 	opacity: ${({ $disabled }) => ($disabled ? 0.5 : 1)};
 
-	border-radius: ${({ $vertical }) => ($vertical ? '0.5rem 0 0 0.5rem' : '0.5rem 0.5rem 0 0')};
+	border-radius: ${({ $vertical }) => ($vertical ? '0.125rem 0 0 0.125rem' : '0.125rem 0.125rem 0 0')};
 	padding: 0.5rem 2rem;
-	margin-bottom: ${({ $vertical }) => ($vertical ? 0 : '-2px')};
-	margin-right: ${({ $vertical }) => ($vertical ? '-2px' : 0)};
 
 	background-color: ${({ theme, $active }) => ($active ? theme.colors.primaryContainer : 'transparent')};
 	color: ${({ theme, $active }) => ($active ? theme.colors.onPrimaryContainer : 'inherit')};
 	cursor: ${({ $disabled }) => ($disabled ? 'not-allowed' : 'pointer')};
 
-	border-bottom-width: ${({ $vertical }) => ($vertical ? '0px' : '2px')};
+	border-bottom-width: ${({ $vertical }) => ($vertical ? '0px' : '1px')};
 	border-bottom-style: solid;
 	border-bottom-color: ${({ theme, $active }) => ($active ? theme.colors.primary : 'transparent')};
 
-	border-right-width: ${({ $vertical }) => ($vertical ? '2px' : '0px')};
+	border-right-width: ${({ $vertical }) => ($vertical ? '1px' : '0px')};
 	border-right-style: solid;
 	border-right-color: ${({ theme, $active }) => ($active ? theme.colors.primary : 'transparent')};
 
