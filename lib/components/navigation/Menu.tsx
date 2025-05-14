@@ -53,12 +53,12 @@ function Item({ label, active, disabled, hidden, ...props }: ItemProps) {
 	);
 }
 
-const StyledMenu = styled.div`
+const StyledMenu = styled.div<{ $vertical?: boolean }>`
 	transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
 	display: flex;
-	flex-direction: column;
-	gap: 2px;
+	flex-direction: ${({ $vertical }) => ($vertical ? 'column' : 'row')};
+	gap: ${({ $vertical }) => ($vertical ? '2px' : '4px')};
 	padding: 0.5rem;
 
 	background-color: ${({ theme }) => theme.colors.surface};
@@ -72,13 +72,14 @@ export type MenuProps = {
 	activeKey?: ItemKey;
 	onChange?: (key: ItemKey) => void;
 	items: (Pick<ItemProps, 'label' | 'hidden' | 'disabled'> & { key: ItemKey })[];
+	vertical?: boolean;
 };
 
-export function Menu({ defaultActiveKey, activeKey, onChange, items, ...props }: MenuProps) {
+export function Menu({ defaultActiveKey, activeKey, onChange, items, vertical = true, ...props }: MenuProps) {
 	const [internalActiveKey, setInternalActiveKey] = useState(defaultActiveKey);
 
 	return (
-		<StyledMenu {...props}>
+		<StyledMenu $vertical={vertical} {...props}>
 			{items.map(({ key, ...item }) => (
 				<Item
 					key={key}
