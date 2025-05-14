@@ -16,6 +16,11 @@ const StyledSelect = styled.select`
 	border: 1px solid ${({ theme }) => theme.colors.outline};
 
 	cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'initial')};
+	opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+
+	&:focus {
+		filter: brightness(1.1);
+	}
 
 	&::placeholder {
 		color: inherit;

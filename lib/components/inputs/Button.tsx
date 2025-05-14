@@ -49,9 +49,9 @@ const StyledButton = styled.button<StyledButtonProps>`
 			case 'primary':
 				return theme.colors.primary;
 			case 'secondary':
-				return 'transparent';
+				return theme.colors.containerLow;
 			case 'danger':
-				return 'transparent';
+				return theme.colors.containerLow;
 			case 'text':
 				return 'transparent';
 		}
@@ -73,6 +73,8 @@ const StyledButton = styled.button<StyledButtonProps>`
 	}};
 
 	&:hover:not(:disabled) {
+		filter: brightness(1.1);
+
 		box-shadow: ${({ $variant, theme }) => ($variant === 'text' ? 0 : theme.shadows.xs)};
 		background-color: ${({ $variant, theme }) => {
 			if ($variant === 'secondary') return theme.colors.secondary;
