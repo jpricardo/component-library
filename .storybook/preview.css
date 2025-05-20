@@ -1,0 +1,17 @@
+@import '../lib//index.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.sbdocs-preview,
+body {
+	background-color: var(--color-neutral-10) !important;
+	color: var(--color-neutral-950) !important;
+}
+
+.dark {
+	.sbdocs-preview,
+	body {
+		background-color: var(--color-neutral-800) !important;
+		color: var(--color-neutral-10) !important;
+	}
+}

@@ -1,0 +1,7 @@
+@import '@fontsource-variable/noto-sans';
+@import 'tailwindcss';
+
+@theme {
+	/* Typography */
+	--font-sans: 'Noto Sans', sans-serif;
+}

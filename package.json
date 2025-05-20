@@ -66,7 +66,9 @@
 	},
 	"dependencies": {
 		"@fontsource-variable/noto-sans": "^5.2.7",
+		"@tailwindcss/vite": "^4.1.7",
 		"color": "^5.0.0",
-		"react-currency-input-field": "^3.10.0"
+		"react-currency-input-field": "^3.10.0",
+		"tailwindcss": "^4.1.7"
 	}
 }

@@ -1,18 +1,15 @@
-import { withThemeFromJSXProvider } from '@storybook/addon-themes';
+import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
-import { ThemeProvider } from 'styled-components';
 
-import { SbGlobalStyles } from '../lib/SbGlobalStyles';
-import { ThemeBuilder } from '../lib/helpers';
 import { modes } from './modes';
+
+import './preview.css';
 
 const preview: Preview = {
 	decorators: [
-		withThemeFromJSXProvider({
-			themes: { light: ThemeBuilder.getLightTheme(), dark: ThemeBuilder.getDarkTheme() },
+		withThemeByClassName({
+			themes: { light: 'light', dark: 'dark' },
 			defaultTheme: 'light',
-			Provider: ThemeProvider,
-			GlobalStyles: SbGlobalStyles,
 		}),
 	],
 	parameters: {

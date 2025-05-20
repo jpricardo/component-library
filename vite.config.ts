@@ -1,3 +1,4 @@
+import tailwindcssVitePlugin from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
@@ -14,13 +15,14 @@ export default defineConfig({
 		copyPublicDir: false,
 		rollupOptions: {
 			output: { interop: 'auto' },
-			external: ['react', 'react/jsx-runtime'],
+			external: ['react', 'react/jsx-runtime', 'react-dom', 'tailwindcss'],
 		},
 		sourcemap: true,
 	},
 
 	plugins: [
 		react(),
+		tailwindcssVitePlugin(),
 		dts({
 			tsconfigPath: path.resolve(__dirname, 'tsconfig.build.json'),
 			rollupTypes: true,
