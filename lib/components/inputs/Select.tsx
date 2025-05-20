@@ -44,11 +44,10 @@ export function Select<T extends OptionType>({ options = [], value, onChange, ..
 	return (
 		<StyledSelect value={value} onChange={(e) => onChange?.(e.target.value as T)} {...props}>
 			{options.map((item, index) => {
-				return (
-					<option key={index} value={typeof item === 'object' ? item.value : item}>
-						{typeof item === 'object' ? item.label : item}
-					</option>
-				);
+				const optionLabel = (typeof item === 'object' ? item.label : item) as React.ReactNode;
+				const optionValue = (typeof item === 'object' ? item.value : item) as ValueType;
+
+				return <option key={index} value={optionValue} children={optionLabel} />;
 			})}
 		</StyledSelect>
 	);
