@@ -55,7 +55,7 @@ export class ThemeBuilder {
 	}
 
 	private static getTypography(): Typography {
-		return { fontFamily: 'sans-serif' };
+		return { fontFamily: '"Noto Sans", sans-serif' };
 	}
 
 	// Light theme

@@ -65,6 +65,7 @@
 		"vite-plugin-dts": "^4.5.3"
 	},
 	"dependencies": {
+		"@fontsource-variable/noto-sans": "^5.2.7",
 		"color": "^5.0.0",
 		"react-currency-input-field": "^3.10.0"
 	}
