@@ -4,14 +4,16 @@
 
 .sbdocs-preview,
 body {
-	background-color: var(--color-neutral-10) !important;
+	font-family: var(--font-sans);
+	background-color: var(--color-neutral-100) !important;
 	color: var(--color-neutral-950) !important;
 }
 
 .dark {
 	.sbdocs-preview,
 	body {
+		font-family: var(--font-sans);
 		background-color: var(--color-neutral-800) !important;
-		color: var(--color-neutral-10) !important;
+		color: var(--color-neutral-100) !important;
 	}
 }
