@@ -1,42 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import styled, { useTheme } from 'styled-components';
 
 import { useOnClickOutside } from '../../hooks';
 import { Button } from '../inputs';
 import { Flex } from '../layout';
 import { Typography } from '../typography';
-
-const StyledModal = styled.div`
-	z-index: 100;
-	position: fixed;
-	top: 10%;
-	left: 0;
-	right: 0;
-	width: 25%;
-	min-width: 200px;
-	max-width: 90%;
-
-	padding: 1rem;
-	margin: auto;
-
-	background-color: ${({ theme }) => theme.colors.container};
-	color: ${({ theme }) => theme.colors.onContainer};
-	border-radius: 0.25rem;
-	box-shadow: ${({ theme }) => theme.shadows.xl};
-`;
-
-const StyledMask = styled.div<{ $opacity: number }>`
-	position: fixed;
-	z-index: 99;
-	top: 0;
-	left: 0;
-
-	height: 100%;
-	width: 100%;
-	background: black;
-	opacity: ${({ $opacity }) => $opacity};
-`;
 
 // Should prevent body scrolling when the modal is open
 const mount = () => {
@@ -53,7 +21,6 @@ export type ModalProps = {
 
 	closeBtn?: boolean;
 	maskClosable?: boolean;
-	maskOpacity?: number;
 
 	id?: string;
 	className?: string;
@@ -64,9 +31,9 @@ export type ModalProps = {
 };
 
 export function Modal({
+	className = '',
 	open,
 	onClose,
-	maskOpacity = 0.75,
 	closeBtn = true,
 	maskClosable = true,
 	title,
@@ -74,7 +41,7 @@ export function Modal({
 	footer,
 	...props
 }: ModalProps) {
-	const { colors } = useTheme();
+	// const { colors } = useTheme();
 
 	const ref = useRef<HTMLDivElement | null>(null);
 	useOnClickOutside<HTMLDivElement>(ref, open, () => maskClosable && onClose());
@@ -93,19 +60,23 @@ export function Modal({
 			{open &&
 				createPortal(
 					<>
-						<StyledMask $opacity={maskOpacity} />
+						<div className={`fixed inset-0 x-99 h-full w-full bg-black/75 backdrop-blur-xs`} />
 
-						<StyledModal ref={ref} {...props}>
-							<Flex gap='2rem' vertical>
-								<Flex gap='1rem' vertical>
-									<Flex justify='space-between' align='center'>
+						<div
+							ref={ref}
+							className={`font-sans fixed z-100 inset-x-0 mx-auto top-10/100 w-25/100 min-w-sm p-4 rounded-sm text-neutral-950 dark:text-neutral-100 bg-neutral-100 dark:bg-neutral-900 ${className}`}
+							{...props}
+						>
+							<Flex style={{ gap: '.5rem', flexDirection: 'column' }}>
+								<Flex style={{ gap: '1rem', flexDirection: 'column' }}>
+									<Flex style={{ justifyContent: 'space-between', alignItems: 'center' }}>
 										<Typography.Title>{title}</Typography.Title>
 
 										{closeBtn && (
 											<Button
 												variant='text'
 												onClick={onClose}
-												style={{ fontFamily: 'monospace', fontWeight: 800, color: colors.outline }}
+												className='font-mono font-extrabold text-neutral-300 dark:text-neutral-700'
 											>
 												X
 											</Button>
@@ -117,7 +88,7 @@ export function Modal({
 									{footer}
 								</Flex>
 							</Flex>
-						</StyledModal>
+						</div>
 					</>,
 					document.body,
 				)}

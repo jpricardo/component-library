@@ -24,7 +24,7 @@ function TestComponent(storyArgs: ModalProps) {
 				open={isOpen}
 				onClose={onClose}
 				footer={
-					<Flex justify='end' gap='0.25rem'>
+					<Flex style={{ justifyContent: 'end', gap: '.25rem' }}>
 						<Button variant='danger' onClick={onClose}>
 							Close
 						</Button>
@@ -66,10 +66,6 @@ export const NoCloseButton: Story = {
 
 export const NotClosableByMask: Story = {
 	args: { maskClosable: false },
-};
-
-export const MaskOpacity: Story = {
-	args: { maskOpacity: 0.25 },
 };
 
 export const Position: Story = {
