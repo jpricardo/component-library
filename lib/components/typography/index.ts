@@ -4,7 +4,7 @@ import Headline from './Headline';
 import Label from './Label';
 import Title from './Title';
 
-export type TypographyVariant = 'default' | 'primary' | 'secondary' | 'danger';
+export type TypographyVariant = 'default' | 'primary' | 'danger';
 export type TypographySize = 'small' | 'medium' | 'large';
 
 export class Typography {
