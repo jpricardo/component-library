@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 import { HtmlAttributes } from '..';
 import { Typography } from '../typography';
 
@@ -9,12 +7,6 @@ type ColumnType<T> = {
 	render?: (value: T[keyof T]) => React.ReactNode;
 };
 
-const StyledTableRow = styled.tr`
-	> * {
-		padding: 0.5rem 1.5rem;
-	}
-`;
-
 type TableRowProps<T> = HtmlAttributes<HTMLTableRowElement> & {
 	data: T;
 	columns: ColumnType<T>[];
@@ -22,29 +14,17 @@ type TableRowProps<T> = HtmlAttributes<HTMLTableRowElement> & {
 
 function TableRow<T extends Record<string, unknown>>({ data, columns, ...props }: TableRowProps<T>) {
 	return (
-		<StyledTableRow {...props}>
+		<tr {...props}>
 			{columns.map((column) => (
-				<td key={column.key as string}>
+				<td className='py-2 px-6' key={column.key as string}>
 					<Typography.Body>
 						{column.render?.(data[column.key]) ?? (data[column.key] as React.ReactNode)}
 					</Typography.Body>
 				</td>
 			))}
-		</StyledTableRow>
+		</tr>
 	);
 }
-
-const StyledTableBody = styled.tbody`
-	> tr {
-		transition: all 0.2s cubic-bezier(0.1, 0.045, 0.355, 1);
-		background-color: ${({ theme }) => theme.colors.containerLowest};
-		color: ${({ theme }) => theme.colors.onContainer};
-
-		&:hover {
-			background-color: ${({ theme }) => theme.colors.containerLow};
-		}
-	}
-`;
 
 type TableBodyProps<T> = HtmlAttributes<HTMLTableSectionElement> & {
 	items: T[];
@@ -52,52 +32,47 @@ type TableBodyProps<T> = HtmlAttributes<HTMLTableSectionElement> & {
 	rowKey: ((item: T) => string) | keyof T;
 };
 
-function TableBody<T extends Record<string, unknown>>({ items, columns, rowKey, ...props }: TableBodyProps<T>) {
+function TableBody<T extends Record<string, unknown>>({
+	className = '',
+	items,
+	columns,
+	rowKey,
+	...props
+}: TableBodyProps<T>) {
 	return (
-		<StyledTableBody {...props}>
+		<tbody className={`text-neutral-950 dark:text-neutral-100 bg-white dark:bg-neutral-800 ${className}`} {...props}>
 			{items.map((item) => (
 				<TableRow
+					className='hover:bg-neutral-50 hover:dark:bg-neutral-700'
 					key={typeof rowKey === 'function' ? rowKey(item) : (item[rowKey] as string)}
 					data={item}
 					columns={columns}
 				/>
 			))}
-		</StyledTableBody>
+		</tbody>
 	);
 }
-
-const StyledTableHeader = styled.thead`
-	user-select: none;
-
-	> tr {
-		background-color: ${({ theme }) => theme.colors.primary};
-		color: ${({ theme }) => theme.colors.onPrimary};
-	}
-`;
 
 type TableHeaderProps<T> = HtmlAttributes<HTMLTableSectionElement> & {
 	columns: ColumnType<T>[];
 };
 
-function TableHeader<T>({ columns, ...props }: TableHeaderProps<T>) {
+function TableHeader<T>({ className = '', columns, ...props }: TableHeaderProps<T>) {
 	return (
-		<StyledTableHeader {...props}>
-			<StyledTableRow>
+		<thead
+			className={`select-none bg-sky-900 dark:bg-sky-500 text-neutral-100 dark:text-neutral-950 ${className}`}
+			{...props}
+		>
+			<tr>
 				{columns.map((column) => (
-					<th key={column.key as string}>
+					<th className='py-2 px-6' key={column.key as string}>
 						<Typography.Body>{column.title}</Typography.Body>
 					</th>
 				))}
-			</StyledTableRow>
-		</StyledTableHeader>
+			</tr>
+		</thead>
 	);
 }
-
-const StyledTable = styled.table`
-	border-spacing: 0;
-	border-radius: 0.25rem;
-	overflow: hidden;
-`;
 
 export type TableProps<T> = HtmlAttributes<HTMLTableElement> & {
 	items: T[];
@@ -106,12 +81,18 @@ export type TableProps<T> = HtmlAttributes<HTMLTableElement> & {
 	rowKey: ((item: T) => string) | keyof T;
 };
 
-export function Table<T extends Record<string, unknown>>({ items, columns, rowKey, ...props }: TableProps<T>) {
+export function Table<T extends Record<string, unknown>>({
+	className = '',
+	items,
+	columns,
+	rowKey,
+	...props
+}: TableProps<T>) {
 	return (
-		<StyledTable {...props}>
+		<table className={`font-sans rounded-sm border-collapse ${className}`} {...props}>
 			<TableHeader columns={columns} />
 
 			<TableBody items={items} columns={columns} rowKey={rowKey} />
-		</StyledTable>
+		</table>
 	);
 }
