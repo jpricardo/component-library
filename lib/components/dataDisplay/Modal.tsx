@@ -64,7 +64,7 @@ export function Modal({
 
 						<div
 							ref={ref}
-							className={`fixed inset-x-0 top-10/100 z-100 mx-auto w-25/100 min-w-sm rounded-sm bg-neutral-100 p-4 font-sans text-neutral-950 dark:bg-neutral-900 dark:text-neutral-100 ${className}`}
+							className={`fixed inset-x-0 top-10/100 z-100 mx-auto w-25/100 min-w-sm rounded-sm bg-white p-4 font-sans text-neutral-950 dark:bg-neutral-800 dark:text-neutral-100 ${className}`}
 							{...props}
 						>
 							<Flex style={{ gap: '.5rem' }} vertical>
