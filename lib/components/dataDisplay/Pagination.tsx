@@ -29,11 +29,11 @@ export function Pagination({
 	const pages = Array.from({ length: pageAmmount }, (_, index) => index + 1);
 
 	return (
-		<Flex align='center' gap='0.25rem' {...props}>
+		<Flex style={{ alignItems: 'center', gap: '.25rem' }} {...props}>
 			<Button onClick={onPreviousPage} disabled={currentPage === 0}>
 				{'<'}
 			</Button>
-			<Flex gap='0.25rem' align='center' style={{ flex: 1 }}>
+			<Flex style={{ flex: 1, alignItems: 'center', gap: '.25rem' }}>
 				{pages.length === 0 && '...'}
 
 				{pages.map((item) => {
@@ -41,8 +41,8 @@ export function Pagination({
 
 					return (
 						<Button
-							variant='text'
 							key={item}
+							variant='text'
 							style={{ fontWeight: currentPage === itemIndex ? '600' : '400', padding: '0.5rem' }}
 							onClick={() => onClick(itemIndex)}
 						>
