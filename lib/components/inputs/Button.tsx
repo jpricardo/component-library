@@ -1,107 +1,36 @@
-import styled from 'styled-components';
-
 import { Spin } from '../feedback';
 import { Flex } from '../layout';
 
-type VariantType = 'default' | 'primary' | 'secondary' | 'danger' | 'text';
+type VariantType = 'default' | 'primary' | 'danger' | 'text';
 
-type StyledButtonProps = { $variant: VariantType; $loading?: boolean };
-
-const StyledButton = styled.button<StyledButtonProps>`
-	transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-
-	font-family: ${({ theme }) => theme.typography.fontFamily};
-	user-select: none;
-
-	height: fit-content;
-	font-size: 14px;
-	line-height: 14px;
-	padding: 0.5rem 1rem;
-	cursor: ${({ $loading, disabled }): React.CSSProperties['cursor'] => {
-		if ($loading) return 'progress';
-		if (disabled) return 'not-allowed';
-		return 'pointer';
-	}};
-	opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
-
-	border-radius: 0.125rem;
-	border-style: solid;
-	border-width: 1px;
-	border-color: ${({ $variant, theme }): React.CSSProperties['borderColor'] => {
-		switch ($variant) {
-			case 'default':
-				return theme.colors.outline;
-			case 'primary':
-				return theme.colors.primary;
-			case 'secondary':
-				return theme.colors.secondary;
-			case 'danger':
-				return theme.colors.error;
-			case 'text':
-				return 'transparent';
-		}
-	}};
-
-	background-color: ${({ $variant, theme }): React.CSSProperties['backgroundColor'] => {
-		switch ($variant) {
-			case 'default':
-				return theme.colors.containerLow;
-			case 'primary':
-				return theme.colors.primary;
-			case 'secondary':
-				return theme.colors.containerLow;
-			case 'danger':
-				return theme.colors.containerLow;
-			case 'text':
-				return 'transparent';
-		}
-	}};
-
-	color: ${({ $variant, theme }): React.CSSProperties['color'] => {
-		switch ($variant) {
-			case 'default':
-				return theme.colors.onSurface;
-			case 'primary':
-				return theme.colors.onPrimary;
-			case 'secondary':
-				return theme.colors.secondary;
-			case 'danger':
-				return theme.colors.error;
-			case 'text':
-				return 'inherit';
-		}
-	}};
-
-	&:hover:not(:disabled) {
-		filter: brightness(1.1);
-
-		box-shadow: ${({ $variant, theme }) => ($variant === 'text' ? 0 : theme.shadows.xs)};
-		background-color: ${({ $variant, theme }) => {
-			if ($variant === 'secondary') return theme.colors.secondary;
-			if ($variant === 'danger') return theme.colors.error;
-		}};
-		color: ${({ $variant, theme }) => {
-			if ($variant === 'secondary') return theme.colors.onSecondary;
-			if ($variant === 'danger') return theme.colors.onError;
-		}};
-		border-color: ${({ $variant, theme }) => {
-			if ($variant === 'default') return theme.colors.onSurface;
-		}};
-	}
-`;
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 	variant?: VariantType;
 	loading?: boolean;
 };
 
-export function Button({ variant = 'default', loading, disabled, children, ...props }: ButtonProps) {
+export function Button({ className = '', variant = 'default', loading, disabled, children, ...props }: ButtonProps) {
+	const colors: Record<VariantType, string> = {
+		default:
+			'text-neutral-900 dark:text-neutral-100 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 hover:dark:bg-neutral-800 border border-solid border-neutral-300 dark:border-neutral-700',
+		text: 'text-neutral-900 dark:text-neutral-100 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 hover:dark:bg-neutral-800',
+		primary:
+			'text-neutral-100 dark:text-neutral-950 bg-sky-950 hover:bg-sky-900 dark:bg-sky-400 hover:dark:bg-sky-300 border border-solid border-neutral-300 hover:border-sky-900 dark:border-neutral-700 hover:dark:border-sky-300',
+		danger:
+			'text-red-900 dark:text-red-400 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 hover:dark:bg-neutral-800 border border-solid border-neutral-300 dark:border-neutral-700 hover:border-red-900 hover:dark:border-red-400',
+	};
+
 	return (
-		<StyledButton $variant={variant} $loading={loading} disabled={disabled || loading} {...props}>
-			<Flex gap='0.5rem' justify='space-around' align='center'>
+		<button
+			className={`
+				font-sans py-2 px-4 rounded-xs text-sm active:outline disabled:opacity-50 ${loading ? 'disabled:cursor-progress' : 'disabled:cursor-not-allowed'} ${colors[variant]} ${className}`}
+			disabled={disabled || loading}
+			{...props}
+		>
+			<Flex gap={2} justify='around' align='center'>
 				{children}
 
 				{loading && <Spin size='sm' style={{ borderColor: 'inherit' }} />}
 			</Flex>
-		</StyledButton>
+		</button>
 	);
 }
