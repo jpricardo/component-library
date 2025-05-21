@@ -1,21 +1,13 @@
-import styled from 'styled-components';
-
 import { Flex } from '../layout';
 import { Typography } from '../typography';
-
-const StyledInput = styled.input`
-	accent-color: ${({ theme }) => theme.colors.primary};
-	margin: 0;
-`;
-
-const StyledLabel = styled(Typography.Label)<{ $disabled?: boolean }>`
-	opacity: ${({ $disabled }) => ($disabled ? 0.5 : 1)};
-`;
 
 type OptionType = string | number;
 
 export type CheckboxGroupProps<T extends OptionType> = {
 	name: string;
+	id?: string;
+	className?: string;
+	style?: React.CSSProperties;
 
 	disabled?: boolean;
 	options?: T[];
@@ -26,11 +18,14 @@ export type CheckboxGroupProps<T extends OptionType> = {
 
 export function CheckboxGroup<T extends OptionType>({
 	name,
+	className = '',
+	style,
 	disabled,
 	options = [],
 	defaultValue,
 	value,
 	onChange,
+	...props
 }: CheckboxGroupProps<T>) {
 	const addOptionToValue = (option: T, value?: T[]) => {
 		return [...(value || []), option];
@@ -41,13 +36,19 @@ export function CheckboxGroup<T extends OptionType>({
 	};
 
 	return (
-		<Flex gap='0.125rem' vertical>
+		<Flex
+			className={`${disabled ? 'opacity-75' : 'opacity-100'} ${className}`}
+			vertical
+			style={{ gap: '.125rem', ...style }}
+			{...props}
+		>
 			{options.map((option, index) => {
 				const checkboxName = `${name}-checkbox-item-${index}`;
 
 				return (
-					<Flex key={checkboxName} gap='0.25rem' align='center'>
-						<StyledInput
+					<Flex key={checkboxName} style={{ alignItems: 'center', gap: '.25rem' }}>
+						<input
+							className='accent-sky-900 dark:accent-sky-400 m-0 cursor-pointer'
 							type='checkbox'
 							id={checkboxName}
 							name={checkboxName}
@@ -60,9 +61,9 @@ export function CheckboxGroup<T extends OptionType>({
 							disabled={disabled}
 						/>
 
-						<StyledLabel htmlFor={checkboxName} $disabled={disabled}>
+						<Typography.Label className='select-none cursor-pointer' htmlFor={checkboxName}>
 							{option}
-						</StyledLabel>
+						</Typography.Label>
 					</Flex>
 				);
 			})}
