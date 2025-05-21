@@ -4,4 +4,15 @@
 @theme {
 	/* Typography */
 	--font-sans: 'Noto Sans', sans-serif;
+
+	/* Animation */
+	--animate-fadein: fadein 0.25s ease-in-out;
+	@keyframes fadein {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
 }
