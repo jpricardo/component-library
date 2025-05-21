@@ -1,35 +1,10 @@
-import styled from 'styled-components';
-
-const StyledInput = styled.input`
-	transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-
-	font-family: ${({ theme }) => theme.typography.fontFamily};
-
-	color: ${({ theme }) => theme.colors.onContainer};
-	background-color: ${({ theme }) => theme.colors.containerLow};
-
-	font-size: 14px;
-	line-height: 14px;
-	padding: 8px;
-
-	border-radius: 0.125rem;
-	border: 1px solid ${({ theme }) => theme.colors.outline};
-
-	cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'initial')};
-	opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
-
-	&:focus {
-		filter: brightness(1.1);
-	}
-
-	&::placeholder {
-		color: inherit;
-		opacity: 0.25;
-	}
-`;
-
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
-export function Input({ ...props }: InputProps) {
-	return <StyledInput {...props} />;
+export function Input({ className = '', ...props }: InputProps) {
+	return (
+		<input
+			className={`font-sans p-2 text-sm bg-neutral-100 dark:bg-neutral-900 text-neutral-950 dark:text-neutral-100 rounded-sm border border-solid border-neutral-300 dark:border-neutral-700 focus:brightness-110 disabled:cursor-not-allowed disabled:opacity-75 placeholder:opacity-75 ${className}`}
+			{...props}
+		/>
+	);
 }
