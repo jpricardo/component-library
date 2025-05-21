@@ -12,7 +12,7 @@ export function Button({ className = '', variant = 'default', loading, disabled,
 	const colors: Record<VariantType, string> = {
 		default:
 			'text-neutral-900 dark:text-neutral-100 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 hover:dark:bg-neutral-800 border border-solid border-neutral-300 dark:border-neutral-700',
-		text: 'text-neutral-900 dark:text-neutral-100 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 hover:dark:bg-neutral-800',
+		text: 'text-neutral-900 dark:text-neutral-100 bg-transparent hover:bg-neutral-100 hover:dark:bg-neutral-900',
 		primary:
 			'text-neutral-100 dark:text-neutral-950 bg-sky-950 hover:bg-sky-900 dark:bg-sky-400 hover:dark:bg-sky-300 border border-solid border-neutral-300 hover:border-sky-900 dark:border-neutral-700 hover:dark:border-sky-300',
 		danger:
@@ -26,7 +26,7 @@ export function Button({ className = '', variant = 'default', loading, disabled,
 			disabled={disabled || loading}
 			{...props}
 		>
-			<Flex gap={2} justify='around' align='center'>
+			<Flex style={{ justifyContent: 'space-around', alignItems: 'center', gap: '.5rem' }}>
 				{children}
 
 				{loading && <Spin size='sm' style={{ borderColor: 'inherit' }} />}
