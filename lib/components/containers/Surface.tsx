@@ -5,7 +5,7 @@ export type SurfaceProps = HtmlAttributes<HTMLDivElement>;
 export function Surface({ className = '', ...props }: SurfaceProps) {
 	return (
 		<div
-			className={`font-sans p-8 rounded-sm text-neutral-950 dark:text-neutral-100 bg-white dark:bg-neutral-800 ${className}`}
+			className={`rounded-sm bg-white p-8 font-sans text-neutral-950 dark:bg-neutral-800 dark:text-neutral-100 ${className}`}
 			{...props}
 		/>
 	);

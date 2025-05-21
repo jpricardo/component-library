@@ -17,7 +17,7 @@ type ItemProps = {
 function Item({ className = '', label, active, disabled, hidden, ...props }: ItemProps) {
 	return (
 		<div
-			className={`${hidden ? 'hidden' : 'flex'} flex-row items-center justify-start gap-4 select-none cursor-pointer aria-disabled:cursor-not-allowed aria-disabled:opacity-50 rounded-xs px-8 py-2 text-inherit aria-selected:text-neutral-50 bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-700 aria-selected:bg-sky-900 ${className}`}
+			className={`${hidden ? 'hidden' : 'flex'} cursor-pointer flex-row items-center justify-start gap-4 rounded-xs bg-transparent px-8 py-2 text-inherit select-none hover:bg-neutral-100 aria-disabled:cursor-not-allowed aria-disabled:opacity-50 aria-selected:bg-sky-900 aria-selected:text-neutral-50 dark:hover:bg-neutral-700 ${className}`}
 			aria-disabled={disabled}
 			aria-selected={active}
 			{...props}
@@ -46,7 +46,7 @@ export function Tabs({ className = '', defaultActiveKey, activeKey, onChange, it
 
 	return (
 		<div
-			className={`transition-all flex ${vertical ? 'flex-row' : 'flex-col'} gap-0 p-2 bg-transparent ${className}`}
+			className={`flex transition-all ${vertical ? 'flex-row' : 'flex-col'} gap-0 bg-transparent p-2 ${className}`}
 			{...props}
 		>
 			<div className={`flex ${vertical ? 'flex-col' : 'flex-row'} gap-1 border-solid`}>

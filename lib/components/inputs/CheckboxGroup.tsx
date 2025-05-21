@@ -48,7 +48,7 @@ export function CheckboxGroup<T extends OptionType>({
 				return (
 					<Flex key={checkboxName} style={{ alignItems: 'center', gap: '.25rem' }}>
 						<input
-							className='accent-sky-900 dark:accent-sky-400 m-0 cursor-pointer'
+							className='m-0 cursor-pointer accent-sky-900 dark:accent-sky-400'
 							type='checkbox'
 							id={checkboxName}
 							name={checkboxName}
@@ -61,7 +61,7 @@ export function CheckboxGroup<T extends OptionType>({
 							disabled={disabled}
 						/>
 
-						<Typography.Label className='select-none cursor-pointer' htmlFor={checkboxName}>
+						<Typography.Label className='cursor-pointer select-none' htmlFor={checkboxName}>
 							{option}
 						</Typography.Label>
 					</Flex>

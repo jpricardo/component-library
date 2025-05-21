@@ -8,14 +8,14 @@ export type BadgeProps = HtmlAttributes<HTMLDivElement> & {
 export function Badge({ className = '', closable, children, onClose, ...props }: BadgeProps) {
 	return (
 		<div
-			className={`font-sans text-xs cursor-pointer py-0.5 px-2 text-neutral-950 dark:text-neutral-100 bg-neutral-100 dark:bg-neutral-900 rounded-sm border border-solid border-neutral-300 dark:border-neutral-700 ${className}`}
+			className={`cursor-pointer rounded-sm border border-solid border-neutral-300 bg-neutral-100 px-2 py-0.5 font-sans text-xs text-neutral-950 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 ${className}`}
 			{...props}
 		>
 			<Flex style={{ alignItems: 'center', gap: '.5rem' }}>
 				{children}
 
 				{closable && (
-					<span className='cursor-pointer select-none font-semibold p-0' onClick={onClose} role='button'>
+					<span className='cursor-pointer p-0 font-semibold select-none' onClick={onClose} role='button'>
 						x
 					</span>
 				)}

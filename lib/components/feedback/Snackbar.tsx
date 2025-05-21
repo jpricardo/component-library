@@ -33,13 +33,13 @@ export function Snackbar({ className = '', duration = 5000, closable = true, con
 	const cursor = props.onClick ? 'cursor-pointer' : 'cursor-initial';
 
 	return (
-		<Container className={`${display} ${cursor} animate-fadein py-2 px-3 ${className}`}>
-			<Flex className='w-full justify-between items-center gap-4' {...props}>
+		<Container className={`${display} ${cursor} animate-fadein px-3 py-2 ${className}`}>
+			<Flex className='w-full items-center justify-between gap-4' {...props}>
 				<Typography.Footnote>{content}</Typography.Footnote>
 
 				{closable && (
 					<Typography.Footnote>
-						<span className='cursor-pointer select-none font-semibold p-1' onClick={doClose} role='button'>
+						<span className='cursor-pointer p-1 font-semibold select-none' onClick={doClose} role='button'>
 							X
 						</span>
 					</Typography.Footnote>

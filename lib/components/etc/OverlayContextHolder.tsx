@@ -23,7 +23,7 @@ export function OverlayContextHolder({
 
 	return createPortal(
 		<div
-			className={`z-100 fixed flex flex-col gap-2 mx-auto right-1/10 left-1/10  ${positions[position]} ${className}`}
+			className={`fixed right-1/10 left-1/10 z-100 mx-auto flex flex-col gap-2 ${positions[position]} ${className}`}
 			{...props}
 		/>,
 		container,

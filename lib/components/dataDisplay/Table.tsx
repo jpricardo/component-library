@@ -16,7 +16,7 @@ function TableRow<T extends Record<string, unknown>>({ data, columns, ...props }
 	return (
 		<tr {...props}>
 			{columns.map((column) => (
-				<td className='py-2 px-6' key={column.key as string}>
+				<td className='px-6 py-2' key={column.key as string}>
 					<Typography.Body>
 						{column.render?.(data[column.key]) ?? (data[column.key] as React.ReactNode)}
 					</Typography.Body>
@@ -40,7 +40,7 @@ function TableBody<T extends Record<string, unknown>>({
 	...props
 }: TableBodyProps<T>) {
 	return (
-		<tbody className={`text-neutral-950 dark:text-neutral-100 bg-white dark:bg-neutral-800 ${className}`} {...props}>
+		<tbody className={`bg-white text-neutral-950 dark:bg-neutral-800 dark:text-neutral-100 ${className}`} {...props}>
 			{items.map((item) => (
 				<TableRow
 					className='hover:bg-neutral-50 hover:dark:bg-neutral-700'
@@ -60,12 +60,12 @@ type TableHeaderProps<T> = HtmlAttributes<HTMLTableSectionElement> & {
 function TableHeader<T>({ className = '', columns, ...props }: TableHeaderProps<T>) {
 	return (
 		<thead
-			className={`select-none bg-sky-900 dark:bg-sky-500 text-neutral-100 dark:text-neutral-950 ${className}`}
+			className={`bg-sky-900 text-neutral-100 select-none dark:bg-sky-500 dark:text-neutral-950 ${className}`}
 			{...props}
 		>
 			<tr>
 				{columns.map((column) => (
-					<th className='py-2 px-6' key={column.key as string}>
+					<th className='px-6 py-2' key={column.key as string}>
 						<Typography.Body>{column.title}</Typography.Body>
 					</th>
 				))}
@@ -89,7 +89,7 @@ export function Table<T extends Record<string, unknown>>({
 	...props
 }: TableProps<T>) {
 	return (
-		<table className={`font-sans rounded-sm border-collapse ${className}`} {...props}>
+		<table className={`border-collapse rounded-sm font-sans ${className}`} {...props}>
 			<TableHeader columns={columns} />
 
 			<TableBody items={items} columns={columns} rowKey={rowKey} />

@@ -60,11 +60,11 @@ export function Modal({
 			{open &&
 				createPortal(
 					<>
-						<div className={`fixed inset-0 x-99 h-full w-full bg-black/75 backdrop-blur-xs`} />
+						<div className={`fixed inset-0 z-99 h-full w-full bg-black/75 backdrop-blur-xs`} />
 
 						<div
 							ref={ref}
-							className={`font-sans fixed z-100 inset-x-0 mx-auto top-10/100 w-25/100 min-w-sm p-4 rounded-sm text-neutral-950 dark:text-neutral-100 bg-neutral-100 dark:bg-neutral-900 ${className}`}
+							className={`fixed inset-x-0 top-10/100 z-100 mx-auto w-25/100 min-w-sm rounded-sm bg-neutral-100 p-4 font-sans text-neutral-950 dark:bg-neutral-900 dark:text-neutral-100 ${className}`}
 							{...props}
 						>
 							<Flex style={{ gap: '.5rem' }} vertical>
