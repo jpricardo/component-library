@@ -1,19 +1,19 @@
-import styled from 'styled-components';
-
 import { HtmlAttributes } from '..';
-
-const StyledDivider = styled.div<{ $vertical: DividerProps['vertical'] }>`
-	height: ${({ $vertical }) => ($vertical ? '100%' : '1px')};
-	width: ${({ $vertical }) => ($vertical ? '1px' : '100%')};
-
-	border-top: ${({ $vertical, theme }) => ($vertical ? 0 : `1px solid ${theme.colors.outline}`)};
-	border-left: ${({ $vertical, theme }) => ($vertical ? `1px solid ${theme.colors.outline}` : 0)};
-`;
 
 export type DividerProps = Omit<HtmlAttributes<HTMLDivElement>, 'children'> & {
 	vertical?: boolean;
 };
 
-export function Divider({ vertical, ...props }: DividerProps) {
-	return <StyledDivider $vertical={vertical} {...props} />;
+export function Divider({ className = '', vertical, ...props }: DividerProps) {
+	const variants = {
+		default: 'w-full h-px border-t',
+		vertical: 'w-px h-full border-l',
+	};
+
+	return (
+		<div
+			className={`border-solid border-neutral-300 dark:border-neutral-700 ${variants[vertical ? 'vertical' : 'default']} ${className}`}
+			{...props}
+		/>
+	);
 }
