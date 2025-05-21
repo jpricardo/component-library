@@ -8,9 +8,6 @@ const meta: Meta<typeof Flex> = {
 	parameters: { layout: 'centered' },
 	tags: ['autodocs'],
 	args: {
-		justify: 'center',
-		align: 'center',
-		gap: 4,
 		vertical: false,
 		children: (
 			<>

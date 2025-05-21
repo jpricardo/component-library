@@ -67,8 +67,8 @@ export function Modal({
 							className={`font-sans fixed z-100 inset-x-0 mx-auto top-10/100 w-25/100 min-w-sm p-4 rounded-sm text-neutral-950 dark:text-neutral-100 bg-neutral-100 dark:bg-neutral-900 ${className}`}
 							{...props}
 						>
-							<Flex style={{ gap: '.5rem', flexDirection: 'column' }}>
-								<Flex style={{ gap: '1rem', flexDirection: 'column' }}>
+							<Flex style={{ gap: '.5rem' }} vertical>
+								<Flex style={{ gap: '1rem' }} vertical>
 									<Flex style={{ justifyContent: 'space-between', alignItems: 'center' }}>
 										<Typography.Title>{title}</Typography.Title>
 
