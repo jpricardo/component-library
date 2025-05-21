@@ -1,33 +1,3 @@
-import styled from 'styled-components';
-
-const StyledSelect = styled.select`
-	transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-
-	font-family: ${({ theme }) => theme.typography.fontFamily};
-
-	color: ${({ theme }) => theme.colors.onContainer};
-	background-color: ${({ theme }) => theme.colors.containerLow};
-
-	font-size: 14px;
-	line-height: 14px;
-	padding: 8px;
-
-	border-radius: 0.125rem;
-	border: 1px solid ${({ theme }) => theme.colors.outline};
-
-	cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'initial')};
-	opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
-
-	&:focus {
-		filter: brightness(1.1);
-	}
-
-	&::placeholder {
-		color: inherit;
-		opacity: 0.25;
-	}
-`;
-
 type ValueType = string | number;
 type OptionObjectType = { label: React.ReactNode; value: ValueType };
 type OptionType = ValueType | OptionObjectType;
@@ -40,15 +10,26 @@ export type SelectProps<T extends OptionType> = Omit<React.SelectHTMLAttributes<
 	onChange?: (value: T) => void;
 };
 
-export function Select<T extends OptionType>({ options = [], value, onChange, ...props }: SelectProps<T>) {
+export function Select<T extends OptionType>({
+	className = '',
+	options = [],
+	value,
+	onChange,
+	...props
+}: SelectProps<T>) {
 	return (
-		<StyledSelect value={value} onChange={(e) => onChange?.(e.target.value as T)} {...props}>
+		<select
+			className={`font-sans p-2 text-sm bg-neutral-100 dark:bg-neutral-900 text-neutral-950 dark:text-neutral-100 rounded-sm border border-solid border-neutral-300 dark:border-neutral-700 focus:brightness-110 disabled:cursor-not-allowed disabled:opacity-75 placeholder:opacity-75 ${className}`}
+			value={value}
+			onChange={(e) => onChange?.(e.target.value as T)}
+			{...props}
+		>
 			{options.map((item, index) => {
 				const optionLabel = (typeof item === 'object' ? item.label : item) as React.ReactNode;
 				const optionValue = (typeof item === 'object' ? item.value : item) as ValueType;
 
 				return <option key={index} value={optionValue} children={optionLabel} />;
 			})}
-		</StyledSelect>
+		</select>
 	);
 }
