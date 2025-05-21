@@ -3,6 +3,7 @@ import { memo } from 'react';
 import { HtmlAttributes, TypographySize, TypographyVariant } from '..';
 
 type LabelProps = HtmlAttributes<HTMLLabelElement> & {
+	htmlFor?: string;
 	variant?: TypographyVariant;
 	size?: TypographySize;
 };
