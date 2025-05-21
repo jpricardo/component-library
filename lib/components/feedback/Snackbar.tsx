@@ -39,7 +39,7 @@ export function Snackbar({ className = '', duration = 5000, closable = true, con
 
 				{closable && (
 					<Typography.Footnote>
-						<span className='cursor-pointer font-semibold p-1' onClick={doClose} role='button'>
+						<span className='cursor-pointer select-none font-semibold p-1' onClick={doClose} role='button'>
 							X
 						</span>
 					</Typography.Footnote>
