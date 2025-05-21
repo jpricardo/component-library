@@ -10,7 +10,7 @@ const meta: Meta<typeof Flex> = {
 	args: {
 		justify: 'center',
 		align: 'center',
-		gap: '1rem',
+		gap: 4,
 		vertical: false,
 		children: (
 			<>

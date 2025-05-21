@@ -1,30 +1,24 @@
-import styled from 'styled-components';
-
 import { HtmlAttributes } from '..';
 
-type StyledFlexProps = {
-	$gap: FlexProps['gap'];
-	$justify: FlexProps['justify'];
-	$align: FlexProps['align'];
-	$vertical: FlexProps['vertical'];
-};
-
-const StyledFlex = styled.div<StyledFlexProps>`
-	display: flex;
-	flex-direction: ${({ $vertical }) => ($vertical ? 'column' : 'row')};
-	gap: ${({ $gap }) => $gap};
-
-	justify-content: ${({ $justify }) => $justify};
-	align-items: ${({ $align }) => $align};
-`;
-
 export type FlexProps = HtmlAttributes<HTMLDivElement> & {
-	gap?: string;
-	justify?: React.CSSProperties['justifyContent'];
-	align?: React.CSSProperties['alignItems'];
+	gap?: number;
+	justify?: 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch' | 'baseline' | 'normal';
+	align?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
 	vertical?: boolean;
 };
 
-export function Flex({ gap, justify, align, vertical, ...props }: FlexProps) {
-	return <StyledFlex $gap={gap} $justify={justify} $align={align} $vertical={vertical} {...props} />;
+export function Flex({
+	className = '',
+	gap = 2,
+	justify = 'start',
+	align = 'baseline',
+	vertical,
+	...props
+}: FlexProps) {
+	return (
+		<div
+			className={`flex ${vertical ? 'flex-col' : 'flex-row'} gap-${gap} justify-${justify} items-${align} ${className}`}
+			{...props}
+		/>
+	);
 }
