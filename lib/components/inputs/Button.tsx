@@ -21,7 +21,7 @@ export function Button({ className = '', variant = 'default', loading, disabled,
 
 	return (
 		<button
-			className={`rounded-xs px-4 py-2 font-sans text-sm active:outline disabled:opacity-50 ${loading ? 'disabled:cursor-progress' : 'disabled:cursor-not-allowed'} ${colors[variant]} ${className}`}
+			className={`cursor-pointer rounded-xs px-4 py-2 font-sans text-sm active:outline disabled:opacity-50 ${loading ? 'disabled:cursor-progress' : 'disabled:cursor-not-allowed'} ${colors[variant]} ${className}`}
 			disabled={disabled || loading}
 			{...props}
 		>
