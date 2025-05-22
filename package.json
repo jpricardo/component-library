@@ -9,7 +9,8 @@
 			"types": "./dist/index.d.ts",
 			"require": "./dist/component-library.umd.cjs",
 			"import": "./dist/component-library.umd.cjs"
-		}
+		},
+		"./style.css": "./dist/component-library.css"
 	},
 	"files": [
 		"dist"
