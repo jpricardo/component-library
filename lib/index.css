@@ -5,6 +5,12 @@
 	/* Typography */
 	--font-sans: 'Noto Sans', sans-serif;
 
+	/* Colors */
+	--color-primary: var(--color-sky-900);
+	--color-on-primary: var(--color-neutral-100);
+	--color-danger: var(--color-red-900);
+	--color-danger-dark: var(--color-red-400);
+
 	/* Animation */
 	--animate-fadein: fadein 0.25s ease-in-out;
 	@keyframes fadein {
@@ -14,5 +20,51 @@
 		100% {
 			opacity: 1;
 		}
+	}
+}
+
+@layer base {
+	html {
+		@apply font-sans;
+	}
+}
+
+@utility bg-surface {
+	@apply bg-zinc-100;
+
+	@variant dark {
+		@apply bg-zinc-900;
+	}
+}
+
+@utility text-surface {
+	@apply text-neutral-950;
+
+	@variant dark {
+		@apply text-neutral-100;
+	}
+}
+
+@utility bg-container {
+	@apply bg-zinc-50;
+
+	@variant dark {
+		@apply bg-zinc-800;
+	}
+}
+
+@utility text-container {
+	@apply text-neutral-950;
+
+	@variant dark {
+		@apply text-neutral-100;
+	}
+}
+
+@utility bordered {
+	@apply border border-solid border-neutral-300;
+
+	@variant dark {
+		@apply border-neutral-700;
 	}
 }

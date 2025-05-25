@@ -1,5 +1,4 @@
 import { Spin } from '../feedback';
-import { Flex } from '../layout';
 
 type VariantType = 'default' | 'primary' | 'danger' | 'text';
 
@@ -10,13 +9,11 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 
 export function Button({ className = '', variant = 'default', loading, disabled, children, ...props }: ButtonProps) {
 	const colors: Record<VariantType, string> = {
-		default:
-			'text-neutral-900 dark:text-neutral-100 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 hover:dark:bg-neutral-800 border border-solid border-neutral-300 dark:border-neutral-700',
-		text: 'text-neutral-900 dark:text-neutral-100 bg-transparent hover:bg-neutral-100 hover:dark:bg-neutral-900',
-		primary:
-			'text-neutral-100 dark:text-neutral-950 bg-sky-950 hover:bg-sky-900 dark:bg-sky-400 hover:dark:bg-sky-300 border border-solid border-neutral-300 hover:border-sky-900 dark:border-neutral-700 hover:dark:border-sky-300',
+		default: 'text-container bg-surface bordered hover:brightness-95 dark:hover:brightness-150',
+		text: 'bg-transparent hover:backdrop-brightness-95 dark:hover:backdrop-brightness-150',
+		primary: 'text-on-primary bg-primary hover:brightness-110 bordered border-primary',
 		danger:
-			'text-red-900 dark:text-red-400 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 hover:dark:bg-neutral-800 border border-solid border-neutral-300 dark:border-neutral-700 hover:border-red-900 hover:dark:border-red-400',
+			'text-danger dark:text-danger-dark bg-surface bordered hover:border-danger hover:dark:border-danger-dark hover:brightness-95 dark:hover:brightness-150',
 	};
 
 	return (
@@ -25,11 +22,11 @@ export function Button({ className = '', variant = 'default', loading, disabled,
 			disabled={disabled || loading}
 			{...props}
 		>
-			<Flex style={{ justifyContent: 'space-around', alignItems: 'center', gap: '.5rem' }}>
+			<div className='flex items-center justify-around gap-2'>
 				{children}
 
 				{loading && <Spin size='sm' style={{ borderColor: 'inherit' }} />}
-			</Flex>
+			</div>
 		</button>
 	);
 }
