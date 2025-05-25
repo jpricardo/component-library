@@ -22,6 +22,7 @@ function Item({ className = '', label, active, disabled, hidden, ...props }: Ite
 			className={`${hidden ? 'hidden' : 'flex'} cursor-pointer flex-row items-center justify-start gap-4 rounded-sm border border-solid border-transparent bg-transparent py-1 pr-8 pl-4 text-neutral-900 transition-colors select-none hover:bg-neutral-100 aria-disabled:cursor-not-allowed aria-disabled:opacity-50 aria-selected:border-sky-900 aria-selected:bg-sky-900 aria-selected:text-neutral-50 dark:text-neutral-50 dark:hover:bg-neutral-700 ${className}`}
 			aria-disabled={disabled}
 			aria-selected={active}
+			role='button'
 			{...props}
 		>
 			<Typography.Body>{label}</Typography.Body>
